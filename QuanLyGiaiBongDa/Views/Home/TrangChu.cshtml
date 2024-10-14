@@ -1,0 +1,119 @@
+﻿
+@{
+    ViewBag.Title = "TrangChu";
+    Layout = "~/Views/Shared/_MasterLayout.cshtml";
+}
+<link href="~/Content/mystyle.css" rel="stylesheet" />
+<nav>
+    <div class="logo">
+        <img src="~/Images/home-logo.jpg" width="100" height="100" />
+        <a href="#">KHK</a>
+    </div>
+    <div class="nav_link">
+        <a href="#">Home</a>
+        <a href="/DoiBong/DoiBong">Menu</a>
+        <a href="/CauThu/DanhSach">Contact</a>
+        <a href="/Login/QuanLy">Information</a>
+    </div>
+    <button><i class="ri-login-circle-fill"></i><a href="/Login/Login">Login</a></button>
+    @if (Session["Name"] != null)
+    {
+        <h5 style="color: red;">@Session["Name"]</h5>
+    }
+
+</nav>
+
+<div class="hero">
+    <div class="left-section">
+        <div class="top">
+            <h2>Giải đấu hàng đầu số 1 Việt Nam</h2>
+            <p>
+                Là giải đấu bóng đá chuyên nghiệp cấp câu lạc bộ cao nhất Việt Nam
+                <div class="buttons">
+                    <button class="doc">here me<i class="ri-arrow-right-line"></i></button>
+                    <button class="git"><i class="ri-github-line"></i> My Football</button>
+                </div>
+        </div>
+
+    </div>
+    <img src="~/Images/home-banner.jpg"/>
+</div>
+<div class="about">
+    <p>About the tournament</p>
+    <h1> Giẩi đấu bống đá hàng đầu việt nam được tổ chức bởi liên đoàn bóng đá Việt Nam</h1>
+    <div class="items">
+        <div class="item">
+            <div class="inner">
+                <img src="https://media.vov.vn/sites/default/files/styles/og_image/public/2023-10/386756634_697985252359904_2473966671876369931_n.png" alt="Logo" />
+                <a href="#">Lịch sử giải đấu</a>
+                <p>
+                    Giải đấu ra mắt vào năm 1980 dưới tên gọi Giải bóng đá A1 toàn quốc,
+                    với nhà vô địch đầu tiên là đội Tổng cục Đường sắt.
+                </p>
+            </div>
+        </div>
+        <div class="item">
+            <div class="inner">
+                <img src="https://media.vov.vn/sites/default/files/styles/og_image/public/2023-10/386756634_697985252359904_2473966671876369931_n.png" alt="Logo" />
+                <a href="#">Các câu lạc bộ tham dự</a>
+                <p>
+                    Giải đấu bao gồm 14 đội thi đấu theo thể thức đấu vòng tròn sân nhà và sân khách.
+                    Đội bóng đứng đầu bảng ở cuối mùa giải được dự AFC Champions League Two mùa sau.
+                </p>
+            </div>
+        </div>
+        <div class="item">
+            <div class="inner">
+                <img src="https://upload.wikimedia.org/wikipedia/vi/4/4c/V.League_1_new_logo.svg" alt="logo"/>
+                <a href="#">Nhà tài trợ chính của giải đấu</a>
+                <p>
+                    Công ty Cổ phần Sâm Ngọc Linh Kon Tum chính thức tài trợ cho V.League trong 3 mùa giải liên tiếp,
+                    giải đấu theo đó cũng có tên gọi mới là Night Wolf V.League 1.
+                </p>
+            </div>
+        </div>
+    </div>
+
+</div>
+<div class="footer">
+    <div class="footer-columns">
+        <div>
+            <h3>VỀ CHÚNG TÔI</h3>
+            <ul>
+                <li>Lịch sử</li>
+                <li>Công ty</li>
+                <li>Cơ hội nghề nghiệp</li>
+            </ul>
+        </div>
+        <div>
+            <h3>DỊCH VỤ KHÁCH HÀNG</h3>
+            <ul>
+                <li><a href="#">Câu hỏi Thường Gặp</a></li>
+            </ul>
+        </div>
+        <div>
+            <h3>LIÊN KẾT NHANH</h3>
+            <ul>
+                <li>Bộ định vị Cửa hàng</li>
+                <li>Dành cho Đối tác</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <p>&copy;Vleague. Mọi quyền được bảo lưu.</p>
+        <a href="#">Khả năng truy cập Web</a> |
+        <a href="#">Chính Sách Bảo Mật Thông Tin</a> |
+        <a href="#">Điều khoản Sử dụng</a> |
+        <a href="#">Sơ đồ Trang web</a> |
+        <a href="#">Tùy Chọn Cookie</a>
+    </div>
+
+    <div class="bottom">
+        <p>Orther Socials:</p>
+        <div class="icons">
+            <i class="ri-youtube-line"></i>
+            <i class="ri-facebook-circle-fill"></i>
+        </div>
+    </div>
+</div>

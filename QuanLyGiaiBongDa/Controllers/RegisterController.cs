@@ -6,10 +6,10 @@ using System.Web.Mvc;
 
 namespace QuanLyGiaiBongDa.Controllers
 {
-    public class HomeController : Controller
+    public class RegisterController : Controller
     {
-        
-        public ActionResult TrangChu()
+        // GET: Register
+        public ActionResult Index()
         {
             return View();
         }
