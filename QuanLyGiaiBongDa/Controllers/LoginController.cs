@@ -15,7 +15,10 @@ namespace QuanLyGiaiBongDa.Controllers
             return View();
         }
 
-        
+        public ActionResult DangNhap()
+        {
+            return View();
+        }
 
         public ActionResult authenticLogin()
         {
