@@ -4,24 +4,7 @@
     Layout = "~/Views/Shared/_MasterLayout.cshtml";
 }
 <link href="~/Content/mystyle.css" rel="stylesheet" />
-<nav>
-    <div class="logo">
-        <img src="~/Images/home-logo.jpg" width="100" height="100" />
-        <a href="#">KHK</a>
-    </div>
-    <div class="nav_link">
-        <a href="#">Home</a>
-        <a href="/DoiBong/DoiBong">Menu</a>
-        <a href="/CauThu/DanhSach">Contact</a>
-        <a href="/Login/QuanLy">Information</a>
-    </div>
-    <button><i class="ri-login-circle-fill"></i><a href="/Login/Login">Login</a></button>
-    @if (Session["Name"] != null)
-    {
-        <h5 style="color: red;">@Session["Name"]</h5>
-    }
 
-</nav>
 
 <div class="hero">
     <div class="left-section">
@@ -71,49 +54,6 @@
                     giải đấu theo đó cũng có tên gọi mới là Night Wolf V.League 1.
                 </p>
             </div>
-        </div>
-    </div>
-
-</div>
-<div class="footer">
-    <div class="footer-columns">
-        <div>
-            <h3>VỀ CHÚNG TÔI</h3>
-            <ul>
-                <li>Lịch sử</li>
-                <li>Công ty</li>
-                <li>Cơ hội nghề nghiệp</li>
-            </ul>
-        </div>
-        <div>
-            <h3>DỊCH VỤ KHÁCH HÀNG</h3>
-            <ul>
-                <li><a href="#">Câu hỏi Thường Gặp</a></li>
-            </ul>
-        </div>
-        <div>
-            <h3>LIÊN KẾT NHANH</h3>
-            <ul>
-                <li>Bộ định vị Cửa hàng</li>
-                <li>Dành cho Đối tác</li>
-            </ul>
-        </div>
-    </div>
-
-    <div class="footer-bottom">
-        <p>&copy;Vleague. Mọi quyền được bảo lưu.</p>
-        <a href="#">Khả năng truy cập Web</a> |
-        <a href="#">Chính Sách Bảo Mật Thông Tin</a> |
-        <a href="#">Điều khoản Sử dụng</a> |
-        <a href="#">Sơ đồ Trang web</a> |
-        <a href="#">Tùy Chọn Cookie</a>
-    </div>
-
-    <div class="bottom">
-        <p>Orther Socials:</p>
-        <div class="icons">
-            <i class="ri-youtube-line"></i>
-            <i class="ri-facebook-circle-fill"></i>
         </div>
     </div>
 </div>
