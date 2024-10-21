@@ -1,0 +1,110 @@
+﻿@model IEnumerable<doan.Models.Account>
+
+@{
+    ViewBag.Title = "QuanLy";
+    Layout = "~/Views/Shared/_Danhsach.cshtml";
+
+}
+
+<style>
+    .btn btn-warnin {
+        background: linear-gradient(to right, #ff7eb3, #ff65a3, #7a77ff, #86a8e7);
+        border: none;
+        border-radius: 50px;
+        color: white;
+        padding: 10px 20px;
+        font-size: 16px;
+        font-weight: bold;
+        text-align: center;
+        text-decoration: none;
+        transition: background 0.3s ease;
+        cursor: pointer;
+        display: inline-block;
+        margin: 5px;
+    }
+
+        .btn btn-warnin:hover {
+            background: linear-gradient(to right, #ff65a3, #ff7eb3, #86a8e7, #7a77ff);
+        }
+    .table th {
+        color: #4CAF50;
+        font-weight: bold;
+        font-size: 30px;
+    }
+
+    .table td {
+        color: whitesmoke;
+        font-weight: bold;
+        font-size: 20px;
+    }
+    .type {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+</style>
+@using (Html.BeginForm("QuanLy", "Login", FormMethod.Get))
+{
+    <h2>QuanLy</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-success" })
+</p>
+<table class="table">
+
+    <div class="type">
+        <input type="text" name="searchValue" placeholder="Nhập từ khóa..." />
+        <button type="submit">Tìm kiếm</button>
+    </div>
+
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.userName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.userPassword)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.userRole)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.repass)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.userName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.userPassword)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.userRole)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.repass)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.ID }, new { @class = "btn btn-success" }) |
+                @Html.ActionLink("Details", "Details", new { id = item.ID }, new { @class = "btn btn-danger" }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.ID }, new { @class = "btn btn-dark" })
+            </td>
+        </tr>
+    }
+
+</table>
+<a href="/Home/TrangChu" class="btn btn-warning"> Trang chu</a>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+}

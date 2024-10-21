@@ -1,0 +1,149 @@
+﻿@model IEnumerable<doan.Models.CauThu>
+@{ ViewBag.Title = "DanhSach";
+    Layout = "~/Views/Shared/_Danhsach.cshtml";
+}
+<style>
+    .1 {
+        font-size: 30px;
+        padding: 20px;
+        background: rgba(255, 255, 255, 0.8);
+    }
+    .text-container {
+        display: flex;
+    }
+
+    .text-box {
+
+        border: 5px solid #4CAF50; 
+        padding: 20px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        background-color: #ffffff;
+        text-align: left;
+        font-size: 24px; 
+        color: #333; 
+        max-width: 90%;
+        margin: auto;
+    }
+    .table th {
+        color: #4CAF50;
+        font-weight: bold; 
+        font-size: 30px;
+    }
+    .table td {
+        color:whitesmoke;
+        font-weight: bold;
+        font-size: 20px;
+    }
+    .btn btn-warnin {
+        background: linear-gradient(to right, #ff7eb3, #ff65a3, #7a77ff, #86a8e7); 
+        border: none;
+        border-radius: 50px; 
+        color: white;
+        padding: 10px 20px; 
+        font-size: 16px;
+        font-weight: bold;
+        text-align: center;
+        text-decoration: none;
+        transition: background 0.3s ease; 
+        cursor: pointer;
+        display: inline-block;
+        margin: 5px;
+    }
+        .btn btn-warnin:hover {
+            background: linear-gradient(to right, #ff65a3, #ff7eb3, #86a8e7, #7a77ff); 
+        }
+    .form-actions.no-color {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px; 
+    }
+    .type {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+</style>
+<div class="class">
+    <div class="text-container">
+        <div class="text-box">
+            Danh Sách Cầu Thủ
+        </div>
+    </div>
+    <p>
+        @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-success" })
+    </p>
+    <table class="table">
+        <div class="type">
+            <input type="text" name="searchValue" placeholder="Nhập từ khóa..." />
+            <button type="submit">Tìm kiếm</button>
+        </div>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.MaCT)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NgaySinh)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TenCT)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ViTri)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SoAo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CanNang)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MaDoi)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Images)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MaCT)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NgaySinh)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TenCT)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ViTri)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SoAo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CanNang)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MaDoi)
+                </td>
+                <td>
+                    <img src="@Url.Content(item.Images)" alt="Hình ảnh người chơi" style="width:100px; height:auto;" />
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { mact = item.MaCT }, new { @class = "btn btn-success" }) |
+                    @Html.ActionLink("Details", "Details", new { mact = item.MaCT }, new { @class = "btn btn-danger" }) |
+                    @Html.ActionLink("Delete", "Delete", new { mact = item.MaCT }, new { @class = "btn btn-dark" })
+                </td>
+
+            </tr>
+        }
+
+    </table>
+    <div class="form-actions no-color">
+        <a href="/Home/TrangChu" class="btn btn-warning"> Trang chu</a>
+        <a href="/CauThu/Cauthu" class="btn btn-warning"> Xem cau thu</a>
+    </div>

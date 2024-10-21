@@ -1,0 +1,21 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <style>
+        .body {
+            background-image: url('https://images.giaoducthoidai.vn/1200x630/Uploaded/2024/ygtmrk/2023_06_19/images2522362-14-1-2022.jpg');
+        }
+    </style>
+</head>
+<body>
+    <div>
+        @RenderBody()
+    </div>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>
