@@ -20,35 +20,30 @@ namespace doan.Controllers
         {
             try
             {
-              
-                var user = database.Account.FirstOrDefault(s => s.userName == _user.userName && s.userPassword == _user.userPassword);
-
-               
-                if (user == null)
+                var check_ID = database.Account.Where(s => s.ID == _user.ID).FirstOrDefault();
+                var check_Name = database.Account.Where(s => s.userName == _user.userName).FirstOrDefault();
+                var check_Pass = database.Account.Where(s => s.userPassword == _user.userPassword).FirstOrDefault();
+                if (check_ID == null || check_Name == null || check_Pass == null)
                 {
-                    ViewBag.ErrorMessage = "Tên đăng nhập hoặc mật khẩu không hợp lệ.";
+                    if (check_ID == null)
+                        ViewBag.ErrorID = "ID khong hop le";
+                    if (check_Name == null)
+                        ViewBag.ErrorName = "Ten dang nhap khong hop le";
+                    if (check_Pass == null)
+                        ViewBag.ErrorPass = "ID khong hop le";
                     return View("Login");
-                }
-
-                
-                Session["Name"] = user.userName;
-                Session["UserRole"] = user.userRole;
-
-             
-                if (user.userRole == "CauThu")
-                {
-                    return RedirectToAction("Home", "Home");
                 }
                 else
                 {
-                    return RedirectToAction("Admin", "Home");
+                    Session["Name"] = _user.userName;
+                    return RedirectToAction("TrangChu", "Home");
                 }
             }
-            catch (Exception ex)
+            catch
             {
-                ViewBag.ErrorMessage = "Đã xảy ra lỗi, vui lòng thử lại.";
                 return View("Login");
             }
+
         }
         public ActionResult Dangky()
         {
