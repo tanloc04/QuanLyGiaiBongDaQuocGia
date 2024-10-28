@@ -20,27 +20,33 @@ namespace doan.Controllers
         {
             try
             {
-                var check_ID = database.Account.Where(s => s.ID == _user.ID).FirstOrDefault();
-                var check_Name = database.Account.Where(s => s.userName == _user.userName).FirstOrDefault();
-                var check_Pass = database.Account.Where(s => s.userPassword == _user.userPassword).FirstOrDefault();
-                if (check_ID == null || check_Name == null || check_Pass == null)
+                // Retrieve user based on userName (or ID, depending on your logic)
+                var user = database.Account.FirstOrDefault(s => s.userName == _user.userName && s.userPassword == _user.userPassword);
+
+                // Check if user is null
+                if (user == null)
                 {
-                    if (check_ID == null)
-                        ViewBag.ErrorID = "ID khong hop le";
-                    if (check_Name == null)
-                        ViewBag.ErrorName = "Ten dang nhap khong hop le";
-                    if (check_Pass == null)
-                        ViewBag.ErrorPass = "ID khong hop le";
+                    ViewBag.ErrorMessage = "Tên đăng nhập hoặc mật khẩu không hợp lệ.";
                     return View("Login");
+                }
+
+                // Set session variables
+                Session["Name"] = user.userName;
+                Session["UserRole"] = user.userRole;
+
+                // Redirect based on user role
+                if (user.userRole == "CauThu")
+                {
+                    return RedirectToAction("Home", "Home");
                 }
                 else
                 {
-                    Session["Name"] = _user.userName;
-                    return RedirectToAction("TrangChu", "Home");
+                    return RedirectToAction("Admin", "Home");
                 }
             }
-            catch
+            catch (Exception ex)
             {
+                ViewBag.ErrorMessage = "Đã xảy ra lỗi, vui lòng thử lại.";
                 return View("Login");
             }
 
