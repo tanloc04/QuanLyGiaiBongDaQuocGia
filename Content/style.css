@@ -225,3 +225,30 @@ body {
 .container.active .toggle-right {
     transform: translateX(200%);
 }
+.password-container {
+    position: relative; /* Để cho biểu tượng được đặt tương đối so với trường nhập */
+    width: 100%; /* Đảm bảo div chứa có cùng chiều rộng với input */
+}
+
+.form-input {
+    padding-right: 40px; /* Tạo không gian cho biểu tượng */
+    width: 100%; /* Đảm bảo input có chiều rộng 100% */
+    border: 1px solid #ccc; /* Đường viền cho input */
+    border-radius: 8px; /* Bo góc cho input */
+    background-color: #eee; /* Màu nền cho input */
+}
+
+.toggle-password {
+    position: absolute;
+    right: 10px; /* Vị trí biểu tượng */
+    top: 50%; /* Căn giữa theo chiều dọc */
+    transform: translateY(-50%); /* Căn giữa chính xác */
+    cursor: pointer; /* Thay đổi con trỏ khi di chuột */
+    color: #999; /* Màu sắc của biểu tượng */
+    pointer-events: auto; /* Để cho sự kiện nhấp chuột hoạt động */
+    z-index: 1; /* Đảm bảo biểu tượng nằm trên input */
+}
+
+    .toggle-password:hover {
+        color: #333; /* Thay đổi màu sắc khi di chuột qua biểu tượng */
+    }

@@ -45,6 +45,15 @@ namespace doan.Controllers
             }
 
         }
+        public ActionResult Logout()
+        {
+            // Clear the session and abandon it
+            Session.Clear();
+            Session.Abandon();
+
+            // Redirect to the login page
+            return RedirectToAction("Login", "Login"); // Ensure "Login" points to your login action
+        }
         public ActionResult Dangky()
         {
             return View();
