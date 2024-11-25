@@ -1,0 +1,113 @@
+﻿@model doan.Models.Account
+
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_Nen.cshtml";
+}
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="~/Content/t.css">
+@if (ViewBag.ErrorMessage != null)
+{
+    <div class="alert alert-danger">
+        @ViewBag.ErrorMessage
+    </div>
+}
+
+@using (Html.BeginForm("autheinLogin", "Login", FormMethod.Post))
+{
+    <div class="container" id="container">
+        <div class="form-container sign-in">
+            <h1>Đăng Nhập</h1>
+            <div class="social-icons">
+                <a href="#" class="icon"><i class="fa-brands fa-google-plus-g"></i></a>
+                <a href="#" class="icon"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="#" class="icon"><i class="fa-brands fa-github"></i></a>
+                <a href="#" class="icon"><i class="fa-brands fa-linkedin-in"></i></a>
+            </div>
+            <span>or use your email for registration</span>
+
+            <table>
+                <tr>
+                    <th>@Html.DisplayNameFor(m => m.ID)</th>
+                    <td>
+                        @Html.TextBoxFor(m => m.ID, new { @class = "form-input", placeholder = "Enter your ID" })
+                    </td>
+                    <td>
+                        @Html.ValidationMessageFor(m => m.ID, "", new { @class = "field-validation-error" })
+                    </td>
+                </tr>
+                <tr>
+                    <th>@Html.DisplayNameFor(m => m.UserName)</th>
+                    <td>
+                        @Html.TextBoxFor(m => m.UserName, new { @class = "form-input", placeholder = "Enter your username" })
+                    </td>
+                    <td>
+                        @Html.ValidationMessageFor(m => m.UserName, "", new { @class = "field-validation-error" })
+                    </td>
+                </tr>
+                <tr>
+                    <th>@Html.DisplayNameFor(m => m.UserPassword)</th>
+                    <td>
+                        <div class="password-container">
+                            @Html.PasswordFor(m => m.UserPassword, new { @class = "form-input", placeholder = "Enter your password", id = "userPassword" })
+                            <span id="togglePassword" class="toggle-password">
+                                <i class="fa-solid fa-eye-slash"></i>
+                            </span>
+                        </div>
+
+                    </td>
+                    <td>
+                        @Html.ValidationMessageFor(m => m.UserPassword, "", new { @class = "field-validation-error" })
+                    </td>
+                </tr>
+
+
+
+                <tr>
+                    <td colspan="3">
+                        <button type="submit" class="login-button">Login</button>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="toggle-container">
+            <div class="toggle">
+                <div class="toggle-panel toggle-right">
+                    <h1>Hello, Friend!</h1>
+                    <p>Register with your personal details to use all of site</p>
+                    <button class="hidden" id="register"><a href="/Login/Dangky/">Đăng ký</a> </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script>
+        document.getElementById('togglePassword').addEventListener('click', function () {
+            const passwordField = document.getElementById('userPassword');
+            const passwordType = passwordField.getAttribute('type');
+            const icon = this.querySelector('i');
+
+            if (passwordType === 'password') {
+                passwordField.setAttribute('type', 'text');
+                icon.classList.remove('fa-eye-slash');
+                icon.classList.add('fa-eye');
+            } else {
+                passwordField.setAttribute('type', 'password');
+                icon.classList.remove('fa-eye');
+                icon.classList.add('fa-eye-slash');
+            }
+        });
+    </script>
+
+
+
+}
+
+

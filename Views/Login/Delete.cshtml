@@ -1,0 +1,153 @@
+﻿@model doan.Models.Account
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Nen.cshtml";
+}
+<style>
+
+    body {
+        background: #f0f0f0 url("https://t4.ftcdn.net/jpg/05/12/61/05/360_F_512610544_0excDel8sZTq4W0XLJTSehr9dZfOqi5R.jpg") no-repeat center center;
+        background-size: cover;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column; /* Cho phép các phần tử con xếp theo cột */
+        justify-content: center; /* Căn giữa theo chiều dọc */
+        align-items: center; /* Căn giữa theo chiều ngang */
+        min-height: 100vh;
+    }
+    h2 {
+        text-align: center; /* Căn giữa tiêu đề chính */
+        color: #6a1b9a; /* Màu sắc tiêu đề */
+    }
+
+    /* Tiêu đề phụ */
+    h3 {
+        text-align: center; /* Căn giữa tiêu đề phụ */
+        color: #333; /* Màu sắc tiêu đề phụ */
+    }
+
+    /* Phần thông tin tài khoản */
+    h4 {
+        text-align: center; /* Căn giữa tiêu đề h4 */
+        color: #6a1b9a; /* Màu sắc tiêu đề */
+        margin-bottom: 10px; /* Khoảng cách dưới tiêu đề */
+    }
+
+    /* Danh sách thông tin */
+    .dl-horizontal {
+        display: flex; /* Sử dụng flexbox để căn giữa */
+        flex-direction: column; /* Sắp xếp theo cột */
+        align-items: center; /* Căn giữa nội dung */
+        margin: 0 auto; /* Căn giữa khối danh sách */
+        max-width: 500px; /* Đặt chiều rộng tối đa */
+        padding: 20px; /* Khoảng cách bên trong */
+        background: rgba(255, 255, 255, 0.9); /* Nền màu trắng mờ */
+        border-radius: 10px; /* Bo góc cho khối danh sách */
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Hiệu ứng bóng */
+    }
+
+        /* Tên thuộc tính */
+        .dl-horizontal dt {
+            font-weight: bold; /* In đậm tên thuộc tính */
+            color: #6a1b9a; /* Màu sắc tên thuộc tính */
+        }
+
+        /* Giá trị thuộc tính */
+        .dl-horizontal dd {
+            margin-bottom: 15px; /* Khoảng cách dưới mỗi giá trị */
+            color: #333; /* Màu sắc giá trị thuộc tính */
+        }
+
+    /* Phần nút hành động */
+    .form-actions {
+        text-align: center; /* Căn giữa phần nút */
+        margin-top: 20px; /* Khoảng cách phía trên phần nút */
+    }
+
+        .form-actions input[type="submit"] {
+            padding: 10px 20px; /* Padding cho nút */
+            border: none; /* Không viền */
+            border-radius: 5px; /* Bo góc */
+            background-color: #ff4c4c; /* Màu đỏ cho nút xóa */
+            color: white; /* Màu chữ trắng */
+            cursor: pointer; /* Con trỏ chuột */
+            transition: background-color 0.3s ease, transform 0.3s ease; /* Hiệu ứng chuyển tiếp */
+        }
+
+            .form-actions input[type="submit"]:hover {
+                background-color: #e60000; /* Màu đỏ đậm hơn khi hover */
+                transform: scale(1.05); /* Hiệu ứng phóng to nhẹ */
+            }
+
+        /* Nút quay lại */
+        .form-actions a {
+            color: #6a1b9a; /* Màu chữ cho nút quay lại */
+            text-decoration: none; /* Bỏ gạch chân */
+            font-weight: bold; /* Chữ in đậm */
+        }
+
+            .form-actions a:hover {
+                color: #5e1283; /* Màu chữ đậm hơn khi hover */
+                text-decoration: underline; /* Gạch chân khi hover */
+            }
+
+</style>
+<h2>Xóa tài khoản</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+   
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.userName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.userName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.userPassword)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.userPassword)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.userRole)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.userRole)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.repass)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.repass)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm("Delete","Login", FormMethod.Post)) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "QuanLy")
+        </div>
+    }
+</div>

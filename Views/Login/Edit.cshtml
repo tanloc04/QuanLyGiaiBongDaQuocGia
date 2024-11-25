@@ -1,0 +1,148 @@
+﻿@model doan.Models.Account
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_QuanLy.cshtml";
+}
+
+<style>
+
+    .form-horizontal {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background:#f0f0f0 url("https://t4.ftcdn.net/jpg/05/12/61/05/360_F_512610544_0excDel8sZTq4W0XLJTSehr9dZfOqi5R.jpg") no-repeat center center;
+        background-size: cover;
+        padding: 20px;
+        min-height: 100vh;
+        justify-content: center;
+    }
+
+    .form-group {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        max-width: 500px; /* Độ rộng tối đa của form */
+        margin-bottom: 15px;
+        background-color: #f9f9f9;
+        align-items: center;
+        padding: 15px;
+        border-radius: 10px;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        border: 1px solid #ddd;
+    }
+
+    /* Nhãn */
+    .control-label {
+        font-weight: bold;
+        color: #6a1b9a;
+        margin-bottom: 5px;
+    }
+
+    /* Ô nhập liệu */
+    .form-control {
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 14px;
+        color: #333;
+        width: 100%; /* Giữ nguyên để rộng như khung cha */
+        max-width: 400px; /* Giới hạn độ rộng tối đa nếu cần */
+        box-sizing: border-box;
+        margin-bottom: 10px; /* Khoảng cách dưới */
+        /* Tiêu đề */
+    }
+    h4 {
+        color: #6a1b9a; /* Màu sắc phù hợp với tiêu đề và nhãn */
+        text-align: center; /* Căn giữa */
+        font-size: 24px; /* Kích thước chữ */
+        font-weight: bold; /* Đậm chữ để nổi bật hơn */
+        margin-bottom: 20px; /* Khoảng cách dưới */
+    }
+
+
+    /* Nút Lưu */
+    .btn-submit {
+        background-color: #6a1b9a;
+        color: #fff;
+        border: none;
+        border-radius: 25px;
+        padding: 10px 20px;
+        font-size: 16px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        width: 100%;
+        max-width: 500px;
+        margin-top: 15px;
+    }
+
+        .btn-submit:hover {
+            background-color: #5e1283;
+        }
+
+    /* Nút Quay lại */
+    .button-group {
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+    }
+
+    .btn-cancel {
+        display: inline-block;
+        color: #6a1b9a;
+        text-decoration: none;
+        font-weight: bold;
+        text-align: center;
+    }
+
+        .btn-cancel:hover {
+            color: #5e1283;
+            text-decoration: underline;
+        }
+
+</style>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+<div class="form-horizontal">
+    <h4>Account</h4>
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.HiddenFor(model => model.ID)
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.userName, htmlAttributes: new { @class = "control-label" })
+        @Html.EditorFor(model => model.userName, new { htmlAttributes = new { @class = "form-control" } })
+        @Html.ValidationMessageFor(model => model.userName, "", new { @class = "text-danger" })
+
+
+
+        @Html.LabelFor(model => model.userPassword, htmlAttributes: new { @class = "control-label" })
+        @Html.EditorFor(model => model.userPassword, new { htmlAttributes = new { @class = "form-control" } })
+        @Html.ValidationMessageFor(model => model.userPassword, "", new { @class = "text-danger" })
+
+
+        @Html.LabelFor(model => model.userRole, htmlAttributes: new { @class = "control-label" })
+        @Html.EditorFor(model => model.userRole, new { htmlAttributes = new { @class = "form-control" } })
+        @Html.ValidationMessageFor(model => model.userRole, "", new { @class = "text-danger" })
+
+
+        @Html.LabelFor(model => model.repass, htmlAttributes: new { @class = "control-label" })
+        @Html.EditorFor(model => model.repass, new { htmlAttributes = new { @class = "form-control" } })
+        @Html.ValidationMessageFor(model => model.repass, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="button-group">
+        <input type="submit" value="Save" class="btn-submit" />
+    </div>
+
+    <div class="button-group">
+        @Html.ActionLink("Back to List", "Index", null, new { @class = "btn-cancel" })
+    </div>
+</div>
+}
+
+

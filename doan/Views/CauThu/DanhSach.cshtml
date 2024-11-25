@@ -1,0 +1,191 @@
+﻿@model IEnumerable<doan.Models.CAUTHU>
+@{ ViewBag.Title = "DanhSach";
+    Layout = "~/Views/Shared/_Danhsach.cshtml";
+}
+<style>
+        * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: Arial, sans-serif;
+        background-image: url('@Url.Content("~/Content/image/1.png")');
+        height: 100%;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+
+    .container {
+        width: 80%;
+        margin: 100px auto; /* Căn giữa container */
+        background-color: rgba(255, 255, 255, 0.8);
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        border-radius: 8px;
+    }
+
+    h2 {
+        text-align: center;
+        margin-bottom: 20px;
+        font-weight: bold;
+        color: #333;
+        font-size: 35px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+
+    .account-table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    .account-table th, .account-table td {
+        padding: 12px 15px;
+        border: 1px solid #ddd;
+        text-align: left;
+    }
+
+    .account-table th {
+        background-color: #007bff;
+        color: #fff;
+        font-weight: bold;
+    }
+
+    .account-table tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+
+    .account-table tr:hover {
+        background-color: #f1f1f1;
+    }
+
+    .btn-success {
+        display: inline-block;
+        padding: 10px 20px;
+        font-size: 16px;
+        font-weight: bold;
+        color: #fff;
+        background-color: #28a745;
+        border: none;
+        border-radius: 5px;
+        text-decoration: none;
+        transition: background-color 0.3s;
+    }
+
+    .btn-success:hover {
+        background-color: #218838;
+    }
+
+    p {
+        text-align: center;
+        margin: 20px 0;
+    }
+
+    .btn-warning {
+        display: inline-flex; /* Chỉnh sửa thành inline-flex */
+        align-items: center;  /* Căn giữa theo chiều dọc */
+        padding: 10px 20px;
+        font-size: 16px;
+        font-weight: bold;
+        color: #fff;
+        background-color: #ffc107;
+        border: none;
+        border-radius: 5px;
+        text-decoration: none;
+        transition: background-color 0.3s, transform 0.2s;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .btn-warning:hover {
+        background-color: #e0a800;
+        transform: translateY(-2px);
+    }
+
+    .btn-warning:active {
+        transform: translateY(1px);
+    }
+
+    .search-container {
+        text-align: center; /* Căn giữa thanh tìm kiếm */
+        margin-bottom: 20px; /* Khoảng cách dưới */
+    }
+
+    .search-container input {
+        padding: 10px;
+        margin-right: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+
+    .search-container button {
+        padding: 10px 15px;
+        border: none;
+        border-radius: 5px;
+        background-color: #007bff;
+        color: #fff;
+        cursor: pointer;
+    }
+
+    .search-container button:hover {
+        background-color: #0056b3;
+    }
+</style>
+<div class="container">
+    <h2>Danh Sách Cầu Thủ</h2>
+
+    <div class="search-container">
+        <input type="text" name="searchValue" placeholder="Nhập từ khóa..." />
+        <button type="submit">Tìm kiếm</button>
+    </div>
+
+    <p>
+        @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-success" })
+    </p>
+
+    <table class="account-table">
+        <thead>
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.MaCT)</th>
+                <th>@Html.DisplayNameFor(model => model.NgaySinh)</th>
+                <th>@Html.DisplayNameFor(model => model.TenCT)</th>
+                <th>@Html.DisplayNameFor(model => model.ViTri)</th>
+                <th>@Html.DisplayNameFor(model => model.SoAo)</th>
+                <th>@Html.DisplayNameFor(model => model.CanNang)</th>
+                <th>@Html.DisplayNameFor(model => model.MaDoi)</th>
+                <th>@Html.DisplayNameFor(model => model.Images)</th>
+                <th>Thao Tác</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => item.MaCT)</td>
+                    <td>@Html.DisplayFor(modelItem => item.NgaySinh)</td>
+                    <td>@Html.DisplayFor(modelItem => item.TenCT)</td>
+                    <td>@Html.DisplayFor(modelItem => item.ViTri)</td>
+                    <td>@Html.DisplayFor(modelItem => item.SoAo)</td>
+                    <td>@Html.DisplayFor(modelItem => item.CanNang)</td>
+                    <td>@Html.DisplayFor(modelItem => item.MaDoi)</td>
+                    <td>
+                        <img src="@Url.Content(item.Images)" alt="Hình ảnh cầu thủ" style="width:100px; height:auto;" />
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { mact = item.MaCT }, new { @class = "btn btn-success" }) |
+                        @Html.ActionLink("Details", "Details", new { mact = item.MaCT }, new { @class = "btn btn-warning" }) |
+                        @Html.ActionLink("Delete", "Delete", new { mact = item.MaCT }, new { @class = "btn btn-danger" })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <div class="form-actions no-color">
+        <a href="/Home/Admin" class="btn btn-warning">Trang chủ</a>
+        <a href="/CauThu/Cauthu" class="btn btn-warning">Xem cầu thủ</a>
+    </div>
+</div>
+

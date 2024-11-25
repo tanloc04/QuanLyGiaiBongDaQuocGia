@@ -1,0 +1,111 @@
+﻿body {
+    background: #f0f0f0 url("https://t4.ftcdn.net/jpg/05/12/61/05/360_F_512610544_0excDel8sZTq4W0XLJTSehr9dZfOqi5R.jpg") no-repeat center center;
+    background-size: cover;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column; /* Cho phép các phần tử con xếp theo cột */
+    justify-content: center; /* Căn giữa theo chiều dọc */
+    align-items: center; /* Căn giữa theo chiều ngang */
+    min-height: 100vh;
+}
+h2 {
+    margin: 20px 0;
+    font-size: 24px;
+    color: #333;
+}
+
+.product-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 10px;
+}
+
+.product-card {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    width: calc(25% - 20px); /* Hiển thị 4 cột */
+    display: flex;
+    flex-direction: row; /* Sắp xếp phần tử theo hàng */
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+    .product-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    }
+
+.product-image {
+    width: 50%; /* Phần ảnh chiếm 50% chiều rộng */
+    height: auto;
+    overflow: hidden;
+}
+
+    .product-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* Đảm bảo ảnh không bị méo */
+    }
+
+.product-info {
+    width: 50%; /* Phần thông tin chiếm 50% chiều rộng */
+    padding: 10px;
+    display: flex;
+    flex-direction: column; /* Xếp các phần tử trong info theo cột */
+    justify-content: center; /* Căn giữa các phần tử trong cột */
+    text-align: left;
+}
+
+.product-price {
+    font-size: 18px;
+    color: #d32f2f;
+    font-weight: bold;
+}
+
+.product-discount {
+    font-size: 14px;
+    color: #999;
+    text-decoration: line-through;
+}
+
+    .product-discount span {
+        color: #d32f2f;
+        font-weight: bold;
+        margin-left: 5px;
+    }
+
+.product-name {
+    font-size: 16px;
+    font-weight: bold;
+    margin: 5px 0;
+}
+
+.product-details {
+    font-size: 14px;
+    color: #555;
+}
+
+/* Responsive cho màn hình nhỏ */
+@media (max-width: 1024px) {
+    .product-card {
+        width: calc(33.33% - 20px); /* Hiển thị 3 cột */
+    }
+}
+
+@media (max-width: 768px) {
+    .product-card {
+        width: calc(50% - 20px); /* Hiển thị 2 cột */
+    }
+}
+
+@media (max-width: 480px) {
+    .product-card {
+        width: 100%; /* Hiển thị 1 cột */
+    }
+}

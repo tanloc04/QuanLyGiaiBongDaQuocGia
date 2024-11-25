@@ -1,0 +1,101 @@
+﻿
+h2 {
+    color: #ffffff;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Container cho danh sách các đội bóng */
+.container {
+    width: 95%;
+    max-width: 1200px;
+    margin: 20px auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px; /* Khoảng cách giữa các thẻ đội bóng */
+}
+
+/* Thẻ hiển thị từng đội bóng */
+.match-card {
+    background: #1e1e1e; /* Màu nền thẻ */
+    border-radius: 12px; /* Bo góc */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Đổ bóng */
+    width: calc(33.33% - 20px); /* Hiển thị 3 thẻ mỗi hàng */
+    text-align: center;
+    padding: 15px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+    /* Hover hiệu ứng cho thẻ */
+    .match-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 8px 12px rgba(0, 0, 0, 0.5);
+    }
+
+/* Thông tin đội bóng */
+.match-info {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.match-date {
+    font-size: 18px;
+    color: #f0f0f0; /* Màu chữ tiêu đề đội bóng */
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+/* Hình ảnh đội bóng */
+.div-img-client {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+}
+
+img {
+    border-radius: 50%; /* Hình ảnh bo tròn */
+    object-fit: cover;
+    height: 150px;
+    width: 150px;
+    border: 3px solid #007bff; /* Viền xanh dương */
+}
+
+/* Thanh hành động */
+.action-bar {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.btn-create {
+    display: inline-block;
+    background-color: #007bff; /* Màu nền nút */
+    color: #fff; /* Màu chữ */
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+    .btn-create:hover {
+        background-color: #0056b3; /* Màu nền khi hover */
+        transform: scale(1.05); /* Tăng kích thước nhẹ khi hover */
+    }
+
+/* Responsive: hiển thị trên các kích thước màn hình khác nhau */
+@media screen and (max-width: 1024px) {
+    .match-card {
+        width: calc(50% - 20px); /* 2 thẻ mỗi hàng */
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .match-card {
+        width: 100%; /* 1 thẻ mỗi hàng */
+    }
+}

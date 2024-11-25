@@ -1,0 +1,40 @@
+﻿@model IEnumerable<doan.Models.DOIBONG>
+
+@{
+    ViewBag.Title = "DoiBongHome";
+    Layout = "~/Views/Shared/_Danhsach.cshtml";
+}
+
+<h2>DoiBongHome</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.MaDoi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TenDoi)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.MaDoi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TenDoi)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+        </td>
+    </tr>
+}
+
+</table>

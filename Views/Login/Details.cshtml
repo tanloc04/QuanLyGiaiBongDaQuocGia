@@ -1,0 +1,119 @@
+﻿@model doan.Models.Account
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Nen.cshtml";
+}
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: #f0f0f0 url("https://t4.ftcdn.net/jpg/05/12/61/05/360_F_512610544_0excDel8sZTq4W0XLJTSehr9dZfOqi5R.jpg") no-repeat center center;
+        background-size: cover;
+        height: 100vh;
+        margin: 0;
+    }
+
+    /* Định dạng container chi tiết tài khoản */
+    .container {
+        background-color: #ffffff;
+        padding: 30px;
+        border-radius: 12px;
+        border: 2px solid #e0e0e0;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15), 0 6px 6px rgba(0, 0, 0, 0.1);
+        width: 100%;
+        max-width: 400px;
+        color: #333;
+        text-align: center;
+    }
+
+    /* Tiêu đề */
+    h2 {
+        color: #4CAF50;
+        font-size: 24px;
+        font-weight: bold;
+        margin-bottom: 20px;
+    }
+
+    hr {
+        border: 1px solid #ddd;
+        margin-bottom: 20px;
+    }
+
+    /* Định dạng nhãn và dữ liệu */
+    .dl-horizontal dt {
+        font-weight: bold;
+        color: #555;
+    }
+
+    .dl-horizontal dd {
+        margin: 0 0 10px 0;
+        padding-left: 10px;
+        color: #777;
+        font-weight: 500;
+    }
+
+    /* Nút liên kết */
+    p a {
+        color: #4CAF50;
+        text-decoration: none;
+        font-weight: bold;
+        padding: 8px 15px;
+        border-radius: 4px;
+        border: 1px solid #4CAF50;
+        transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+        p a:hover {
+            background-color: #4CAF50;
+            color: #fff;
+        }
+
+    /* Canh giữa các nút liên kết */
+    p {
+        text-align: center;
+        margin-top: 20px;
+    }
+
+</style>
+<div class="container">
+
+    <h2>Thông tin</h2>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ID)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ID)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.userName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.userName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.userPassword)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.userPassword)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.userRole)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.userRole)
+        </dd>
+
+    </dl>
+</div>
+
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Quay lại", "QuanLy", "Login")
+
+
+</p>

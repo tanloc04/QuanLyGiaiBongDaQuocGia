@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="QLGIAIBONGDAModelStoreContainer" CdmEntityContainer="QLGIAIBONGDAEntities">
+    <EntitySetMapping Name="Accounts">
+      <EntityTypeMapping TypeName="QLGIAIBONGDAModel.Account">
+        <MappingFragment StoreEntitySet="Account">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="UserPassword" ColumnName="UserPassword" />
+          <ScalarProperty Name="userRole" ColumnName="userRole" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BanThangs">
+      <EntityTypeMapping TypeName="QLGIAIBONGDAModel.BanThang">
+        <MappingFragment StoreEntitySet="BanThang">
+          <ScalarProperty Name="MaBT" ColumnName="MaBT" />
+          <ScalarProperty Name="MaCT" ColumnName="MaCT" />
+          <ScalarProperty Name="MaTD" ColumnName="MaTD" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CauThus">
+      <EntityTypeMapping TypeName="QLGIAIBONGDAModel.CauThu">
+        <MappingFragment StoreEntitySet="CauThu">
+          <ScalarProperty Name="MaCT" ColumnName="MaCT" />
+          <ScalarProperty Name="NgaySinh" ColumnName="NgaySinh" />
+          <ScalarProperty Name="TenCT" ColumnName="TenCT" />
+          <ScalarProperty Name="ViTri" ColumnName="ViTri" />
+          <ScalarProperty Name="SoAo" ColumnName="SoAo" />
+          <ScalarProperty Name="CanNang" ColumnName="CanNang" />
+          <ScalarProperty Name="Images" ColumnName="Images" />
+          <ScalarProperty Name="MaDoi" ColumnName="MaDoi" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ChiTietTranDaus">
+      <EntityTypeMapping TypeName="QLGIAIBONGDAModel.ChiTietTranDau">
+        <MappingFragment StoreEntitySet="ChiTietTranDau">
+          <ScalarProperty Name="MaCTTD" ColumnName="MaCTTD" />
+          <ScalarProperty Name="MaTD" ColumnName="MaTD" />
+          <ScalarProperty Name="NgayGio" ColumnName="NgayGio" />
+          <ScalarProperty Name="MaDoiThu1" ColumnName="MaDoiThu1" />
+          <ScalarProperty Name="MaDoiThu2" ColumnName="MaDoiThu2" />
+          <ScalarProperty Name="DiaDiem" ColumnName="DiaDiem" />
+          <ScalarProperty Name="SanVanDong" ColumnName="SanVanDong" />
+          <ScalarProperty Name="KetQua" ColumnName="KetQua" />
+          <ScalarProperty Name="SoLuongKhanGia" ColumnName="SoLuongKhanGia" />
+          <ScalarProperty Name="TrongTai" ColumnName="TrongTai" />
+          <ScalarProperty Name="ThoiLuong" ColumnName="ThoiLuong" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DoiBongs">
+      <EntityTypeMapping TypeName="QLGIAIBONGDAModel.DoiBong">
+        <MappingFragment StoreEntitySet="DoiBong">
+          <ScalarProperty Name="MaDoi" ColumnName="MaDoi" />
+          <ScalarProperty Name="TenDoi" ColumnName="TenDoi" />
+          <ScalarProperty Name="Anh" ColumnName="Anh" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NhaTaiTroes">
+      <EntityTypeMapping TypeName="QLGIAIBONGDAModel.NhaTaiTro">
+        <MappingFragment StoreEntitySet="NhaTaiTro">
+          <ScalarProperty Name="MaNTT" ColumnName="MaNTT" />
+          <ScalarProperty Name="TenNTT" ColumnName="TenNTT" />
+          <ScalarProperty Name="LoaiTaiTro" ColumnName="LoaiTaiTro" />
+          <ScalarProperty Name="SoTienTaiTro" ColumnName="SoTienTaiTro" />
+          <ScalarProperty Name="ThongTinLienHe" ColumnName="ThongTinLienHe" />
+          <ScalarProperty Name="GhiChu" ColumnName="GhiChu" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TranDaus">
+      <EntityTypeMapping TypeName="QLGIAIBONGDAModel.TranDau">
+        <MappingFragment StoreEntitySet="TranDau">
+          <ScalarProperty Name="MaTD" ColumnName="MaTD" />
+          <ScalarProperty Name="SanTD" ColumnName="SanTD" />
+          <ScalarProperty Name="NgayTD" ColumnName="NgayTD" />
+          <ScalarProperty Name="TySo" ColumnName="TySo" />
+          <ScalarProperty Name="DoiKhach" ColumnName="DoiKhach" />
+          <ScalarProperty Name="DoiChuNha" ColumnName="DoiChuNha" />
+          <ScalarProperty Name="Videos" ColumnName="Videos" />
+          <ScalarProperty Name="MaVD" ColumnName="MaVD" />
+          <ScalarProperty Name="MaDoi" ColumnName="MaDoi" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VongDaus">
+      <EntityTypeMapping TypeName="QLGIAIBONGDAModel.VongDau">
+        <MappingFragment StoreEntitySet="VongDau">
+          <ScalarProperty Name="MaVD" ColumnName="MaVD" />
+          <ScalarProperty Name="TenVD" ColumnName="TenVD" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

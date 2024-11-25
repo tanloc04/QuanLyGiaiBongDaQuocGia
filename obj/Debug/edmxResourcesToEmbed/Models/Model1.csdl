@@ -1,0 +1,243 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="QLGIAIBONGDAModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Account">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="UserName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="UserPassword" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="userRole" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="BanThang">
+    <Key>
+      <PropertyRef Name="MaBT" />
+    </Key>
+    <Property Name="MaBT" Type="String" MaxLength="5" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="MaCT" Type="String" MaxLength="5" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="MaTD" Type="String" MaxLength="5" FixedLength="true" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="CauThu" Relationship="Self.FK__BanThang__MaCT__5629CD9C" FromRole="BanThang" ToRole="CauThu" />
+    <NavigationProperty Name="TranDau" Relationship="Self.FK__BanThang__MaTD__571DF1D5" FromRole="BanThang" ToRole="TranDau" />
+  </EntityType>
+  <EntityType Name="CauThu">
+    <Key>
+      <PropertyRef Name="MaCT" />
+    </Key>
+    <Property Name="MaCT" Type="String" MaxLength="5" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="NgaySinh" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="TenCT" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ViTri" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="SoAo" Type="Int32" Nullable="false" />
+    <Property Name="CanNang" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Images" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="MaDoi" Type="String" MaxLength="5" FixedLength="true" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="BanThangs" Relationship="Self.FK__BanThang__MaCT__5629CD9C" FromRole="CauThu" ToRole="BanThang" />
+    <NavigationProperty Name="DoiBong" Relationship="Self.FK__CauThu__MaDoi__4BAC3F29" FromRole="CauThu" ToRole="DoiBong" />
+  </EntityType>
+  <EntityType Name="ChiTietTranDau">
+    <Key>
+      <PropertyRef Name="MaCTTD" />
+    </Key>
+    <Property Name="MaCTTD" Type="String" MaxLength="5" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="MaTD" Type="String" MaxLength="5" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="NgayGio" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="MaDoiThu1" Type="String" MaxLength="5" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="MaDoiThu2" Type="String" MaxLength="5" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="DiaDiem" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="SanVanDong" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="KetQua" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="SoLuongKhanGia" Type="Int32" />
+    <Property Name="TrongTai" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="ThoiLuong" Type="Int32" />
+    <NavigationProperty Name="DoiBong" Relationship="Self.FK__ChiTietTr__MaDoi__5CD6CB2B" FromRole="ChiTietTranDau" ToRole="DoiBong" />
+    <NavigationProperty Name="DoiBong1" Relationship="Self.FK__ChiTietTr__MaDoi__5DCAEF64" FromRole="ChiTietTranDau" ToRole="DoiBong" />
+    <NavigationProperty Name="TranDau" Relationship="Self.FK__ChiTietTra__MaTD__5BE2A6F2" FromRole="ChiTietTranDau" ToRole="TranDau" />
+  </EntityType>
+  <EntityType Name="DoiBong">
+    <Key>
+      <PropertyRef Name="MaDoi" />
+    </Key>
+    <Property Name="MaDoi" Type="String" MaxLength="5" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="TenDoi" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Anh" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="CauThus" Relationship="Self.FK__CauThu__MaDoi__4BAC3F29" FromRole="DoiBong" ToRole="CauThu" />
+    <NavigationProperty Name="ChiTietTranDaus" Relationship="Self.FK__ChiTietTr__MaDoi__5CD6CB2B" FromRole="DoiBong" ToRole="ChiTietTranDau" />
+    <NavigationProperty Name="ChiTietTranDaus1" Relationship="Self.FK__ChiTietTr__MaDoi__5DCAEF64" FromRole="DoiBong" ToRole="ChiTietTranDau" />
+    <NavigationProperty Name="TranDaus" Relationship="Self.FK__TranDau__MaDoi__534D60F1" FromRole="DoiBong" ToRole="TranDau" />
+  </EntityType>
+  <EntityType Name="NhaTaiTro">
+    <Key>
+      <PropertyRef Name="MaNTT" />
+    </Key>
+    <Property Name="MaNTT" Type="String" MaxLength="5" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="TenNTT" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="LoaiTaiTro" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="SoTienTaiTro" Type="Decimal" Precision="18" Scale="2" />
+    <Property Name="ThongTinLienHe" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="GhiChu" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="TranDau">
+    <Key>
+      <PropertyRef Name="MaTD" />
+    </Key>
+    <Property Name="MaTD" Type="String" MaxLength="5" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="SanTD" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="NgayTD" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="TySo" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DoiKhach" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DoiChuNha" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Videos" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="MaVD" Type="String" MaxLength="5" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="MaDoi" Type="String" MaxLength="5" FixedLength="true" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="BanThangs" Relationship="Self.FK__BanThang__MaTD__571DF1D5" FromRole="TranDau" ToRole="BanThang" />
+    <NavigationProperty Name="ChiTietTranDaus" Relationship="Self.FK__ChiTietTra__MaTD__5BE2A6F2" FromRole="TranDau" ToRole="ChiTietTranDau" />
+    <NavigationProperty Name="DoiBong" Relationship="Self.FK__TranDau__MaDoi__534D60F1" FromRole="TranDau" ToRole="DoiBong" />
+    <NavigationProperty Name="VongDau" Relationship="Self.FK__TranDau__MaVD__52593CB8" FromRole="TranDau" ToRole="VongDau" />
+  </EntityType>
+  <EntityType Name="VongDau">
+    <Key>
+      <PropertyRef Name="MaVD" />
+    </Key>
+    <Property Name="MaVD" Type="String" MaxLength="5" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="TenVD" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="TranDaus" Relationship="Self.FK__TranDau__MaVD__52593CB8" FromRole="VongDau" ToRole="TranDau" />
+  </EntityType>
+  <Association Name="FK__BanThang__MaCT__5629CD9C">
+    <End Role="CauThu" Type="Self.CauThu" Multiplicity="1" />
+    <End Role="BanThang" Type="Self.BanThang" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CauThu">
+        <PropertyRef Name="MaCT" />
+      </Principal>
+      <Dependent Role="BanThang">
+        <PropertyRef Name="MaCT" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__BanThang__MaTD__571DF1D5">
+    <End Role="TranDau" Type="Self.TranDau" Multiplicity="1" />
+    <End Role="BanThang" Type="Self.BanThang" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TranDau">
+        <PropertyRef Name="MaTD" />
+      </Principal>
+      <Dependent Role="BanThang">
+        <PropertyRef Name="MaTD" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__CauThu__MaDoi__4BAC3F29">
+    <End Role="DoiBong" Type="Self.DoiBong" Multiplicity="1" />
+    <End Role="CauThu" Type="Self.CauThu" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DoiBong">
+        <PropertyRef Name="MaDoi" />
+      </Principal>
+      <Dependent Role="CauThu">
+        <PropertyRef Name="MaDoi" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ChiTietTr__MaDoi__5CD6CB2B">
+    <End Role="DoiBong" Type="Self.DoiBong" Multiplicity="1" />
+    <End Role="ChiTietTranDau" Type="Self.ChiTietTranDau" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DoiBong">
+        <PropertyRef Name="MaDoi" />
+      </Principal>
+      <Dependent Role="ChiTietTranDau">
+        <PropertyRef Name="MaDoiThu1" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ChiTietTr__MaDoi__5DCAEF64">
+    <End Role="DoiBong" Type="Self.DoiBong" Multiplicity="1" />
+    <End Role="ChiTietTranDau" Type="Self.ChiTietTranDau" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DoiBong">
+        <PropertyRef Name="MaDoi" />
+      </Principal>
+      <Dependent Role="ChiTietTranDau">
+        <PropertyRef Name="MaDoiThu2" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__ChiTietTra__MaTD__5BE2A6F2">
+    <End Role="TranDau" Type="Self.TranDau" Multiplicity="1" />
+    <End Role="ChiTietTranDau" Type="Self.ChiTietTranDau" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TranDau">
+        <PropertyRef Name="MaTD" />
+      </Principal>
+      <Dependent Role="ChiTietTranDau">
+        <PropertyRef Name="MaTD" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TranDau__MaDoi__534D60F1">
+    <End Role="DoiBong" Type="Self.DoiBong" Multiplicity="1" />
+    <End Role="TranDau" Type="Self.TranDau" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DoiBong">
+        <PropertyRef Name="MaDoi" />
+      </Principal>
+      <Dependent Role="TranDau">
+        <PropertyRef Name="MaDoi" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TranDau__MaVD__52593CB8">
+    <End Role="VongDau" Type="Self.VongDau" Multiplicity="1" />
+    <End Role="TranDau" Type="Self.TranDau" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="VongDau">
+        <PropertyRef Name="MaVD" />
+      </Principal>
+      <Dependent Role="TranDau">
+        <PropertyRef Name="MaVD" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="QLGIAIBONGDAEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Accounts" EntityType="Self.Account" />
+    <EntitySet Name="BanThangs" EntityType="Self.BanThang" />
+    <EntitySet Name="CauThus" EntityType="Self.CauThu" />
+    <EntitySet Name="ChiTietTranDaus" EntityType="Self.ChiTietTranDau" />
+    <EntitySet Name="DoiBongs" EntityType="Self.DoiBong" />
+    <EntitySet Name="NhaTaiTroes" EntityType="Self.NhaTaiTro" />
+    <EntitySet Name="TranDaus" EntityType="Self.TranDau" />
+    <EntitySet Name="VongDaus" EntityType="Self.VongDau" />
+    <AssociationSet Name="FK__BanThang__MaCT__5629CD9C" Association="Self.FK__BanThang__MaCT__5629CD9C">
+      <End Role="CauThu" EntitySet="CauThus" />
+      <End Role="BanThang" EntitySet="BanThangs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__BanThang__MaTD__571DF1D5" Association="Self.FK__BanThang__MaTD__571DF1D5">
+      <End Role="TranDau" EntitySet="TranDaus" />
+      <End Role="BanThang" EntitySet="BanThangs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__CauThu__MaDoi__4BAC3F29" Association="Self.FK__CauThu__MaDoi__4BAC3F29">
+      <End Role="DoiBong" EntitySet="DoiBongs" />
+      <End Role="CauThu" EntitySet="CauThus" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ChiTietTr__MaDoi__5CD6CB2B" Association="Self.FK__ChiTietTr__MaDoi__5CD6CB2B">
+      <End Role="DoiBong" EntitySet="DoiBongs" />
+      <End Role="ChiTietTranDau" EntitySet="ChiTietTranDaus" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ChiTietTr__MaDoi__5DCAEF64" Association="Self.FK__ChiTietTr__MaDoi__5DCAEF64">
+      <End Role="DoiBong" EntitySet="DoiBongs" />
+      <End Role="ChiTietTranDau" EntitySet="ChiTietTranDaus" />
+    </AssociationSet>
+    <AssociationSet Name="FK__ChiTietTra__MaTD__5BE2A6F2" Association="Self.FK__ChiTietTra__MaTD__5BE2A6F2">
+      <End Role="TranDau" EntitySet="TranDaus" />
+      <End Role="ChiTietTranDau" EntitySet="ChiTietTranDaus" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TranDau__MaDoi__534D60F1" Association="Self.FK__TranDau__MaDoi__534D60F1">
+      <End Role="DoiBong" EntitySet="DoiBongs" />
+      <End Role="TranDau" EntitySet="TranDaus" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TranDau__MaVD__52593CB8" Association="Self.FK__TranDau__MaVD__52593CB8">
+      <End Role="VongDau" EntitySet="VongDaus" />
+      <End Role="TranDau" EntitySet="TranDaus" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

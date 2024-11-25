@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="12736cb2a7df49bb977986f9ad1f369d" Name="Diagram1">
+        <EntityTypeShape EntityType="QLGIAIBONGDAModel.Account" Width="1.5" PointX="7.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLGIAIBONGDAModel.BanThang" Width="1.5" PointX="5.25" PointY="6.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLGIAIBONGDAModel.CauThu" Width="1.5" PointX="3" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLGIAIBONGDAModel.ChiTietTranDau" Width="1.5" PointX="6" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLGIAIBONGDAModel.DoiBong" Width="1.5" PointX="0.75" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLGIAIBONGDAModel.NhaTaiTro" Width="1.5" PointX="8.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLGIAIBONGDAModel.TranDau" Width="1.5" PointX="3" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLGIAIBONGDAModel.VongDau" Width="1.5" PointX="0.75" PointY="2.5" IsExpanded="true" />
+        <AssociationConnector Association="QLGIAIBONGDAModel.FK__BanThang__MaCT__5629CD9C" ManuallyRouted="false" />
+        <AssociationConnector Association="QLGIAIBONGDAModel.FK__BanThang__MaTD__571DF1D5" ManuallyRouted="false" />
+        <AssociationConnector Association="QLGIAIBONGDAModel.FK__CauThu__MaDoi__4BAC3F29" ManuallyRouted="false" />
+        <AssociationConnector Association="QLGIAIBONGDAModel.FK__ChiTietTr__MaDoi__5CD6CB2B" ManuallyRouted="false" />
+        <AssociationConnector Association="QLGIAIBONGDAModel.FK__ChiTietTr__MaDoi__5DCAEF64" ManuallyRouted="false" />
+        <AssociationConnector Association="QLGIAIBONGDAModel.FK__ChiTietTra__MaTD__5BE2A6F2" ManuallyRouted="false" />
+        <AssociationConnector Association="QLGIAIBONGDAModel.FK__TranDau__MaDoi__534D60F1" ManuallyRouted="false" />
+        <AssociationConnector Association="QLGIAIBONGDAModel.FK__TranDau__MaVD__52593CB8" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,218 @@
+﻿@model IEnumerable<doan.Models.TRANDAU>
+
+@{
+    ViewBag.Title = "TranDau";
+    Layout = "~/Views/Shared/_Nen.cshtml";
+}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.2.0/remixicon.min.css">
+<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+<style>
+  * {
+     margin: 0;
+     padding: 0;
+     box-sizing: border-box;
+ }
+
+ body {
+     font-family: Arial, sans-serif;
+     background-image: url('@Url.Content("~/Content/image/1.png")');
+     height: 100%;
+     background-size: cover;
+     background-repeat: no-repeat;
+     background-position: center;
+ }
+
+ .container {
+     width: 80%;
+     margin: 100px auto; /* Căn giữa container */
+     background-color: rgba(255, 255, 255, 0.8);
+     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+     padding: 20px;
+     border-radius: 8px;
+ }
+
+ h2 {
+     text-align: center;
+     margin-bottom: 20px;
+     font-weight: bold;
+     color: #333;
+     font-size: 35px;
+     text-transform: uppercase;
+     letter-spacing: 1px;
+ }
+
+ .account-table {
+     width: 100%;
+     border-collapse: collapse;
+ }
+
+ .account-table th, .account-table td {
+     padding: 12px 15px;
+     border: 1px solid #ddd;
+     text-align: left;
+ }
+
+ .account-table th {
+     background-color: #007bff;
+     color: #fff;
+     font-weight: bold;
+ }
+
+ .account-table tr:nth-child(even) {
+     background-color: #f9f9f9;
+ }
+
+ .account-table tr:hover {
+     background-color: #f1f1f1;
+ }
+
+ .btn-success {
+     display: inline-block;
+     padding: 10px 20px;
+     font-size: 16px;
+     font-weight: bold;
+     color: #fff;
+     background-color: #28a745;
+     border: none;
+     border-radius: 5px;
+     text-decoration: none;
+     transition: background-color 0.3s;
+ }
+
+ .btn-success:hover {
+     background-color: #218838;
+ }
+
+ p {
+     text-align: center;
+     margin: 20px 0;
+ }
+
+ .btn-warning {
+     display: inline-flex; /* Chỉnh sửa thành inline-flex */
+     align-items: center;  /* Căn giữa theo chiều dọc */
+     padding: 10px 20px;
+     font-size: 16px;
+     font-weight: bold;
+     color: #fff;
+     background-color: #ffc107;
+     border: none;
+     border-radius: 5px;
+     text-decoration: none;
+     transition: background-color 0.3s, transform 0.2s;
+     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+ }
+
+ .btn-warning:hover {
+     background-color: #e0a800;
+     transform: translateY(-2px);
+ }
+
+ .btn-warning:active {
+     transform: translateY(1px);
+ }
+
+ .search-container {
+     text-align: center; /* Căn giữa thanh tìm kiếm */
+     margin-bottom: 20px; /* Khoảng cách dưới */
+ }
+
+ .search-container input {
+     padding: 10px;
+     margin-right: 10px;
+     border: 1px solid #ccc;
+     border-radius: 5px;
+ }
+
+ .search-container button {
+     padding: 10px 15px;
+     border: none;
+     border-radius: 5px;
+     background-color: #007bff;
+     color: #fff;
+     cursor: pointer;
+ }
+
+ .search-container button:hover {
+     background-color: #0056b3;
+ }
+
+
+</style>
+@using (Html.BeginForm("TranDau", "TranDau", FormMethod.Get))
+{
+    <div class="container">
+        <h2>TranDau</h2>
+        <p>
+            @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-success" })
+        </p>
+        <div class="search-container">
+            <input type="text" name="searchValue" placeholder="Nhập từ khóa..." />
+            <button type="submit">Tìm kiếm</button>
+        </div>
+        <table class="account-table">
+            <thead>
+                <tr>
+                    <th>@Html.DisplayNameFor(model => model.SanTD)</th>
+                    <th>@Html.DisplayNameFor(model => model.NgayTD)</th>
+                    <th>@Html.DisplayNameFor(model => model.MaTD)</th>
+                    <th>@Html.DisplayNameFor(model => model.TySo)</th>
+                    <th>@Html.DisplayNameFor(model => model.DoiKhach)</th>
+                    <th>@Html.DisplayNameFor(model => model.DoiChuNha)</th>
+                    <th>@Html.DisplayNameFor(model => model.MaVD)</th>
+                    <th>@Html.DisplayNameFor(model => model.MaDoi)</th>
+                    <th>@Html.DisplayNameFor(model => model.Videos)</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@Html.DisplayFor(modelItem => item.SanTD)</td>
+                        <td>@Html.DisplayFor(modelItem => item.NgayTD)</td>
+                        <td>@Html.DisplayFor(modelItem => item.MaTD)</td>
+                        <td>@Html.DisplayFor(modelItem => item.TySo)</td>
+                        <td>@Html.DisplayFor(modelItem => item.DoiKhach)</td>
+                        <td>@Html.DisplayFor(modelItem => item.DoiChuNha)</td>
+                        <td>@Html.DisplayFor(modelItem => item.MaVD)</td>
+                        <td>@Html.DisplayFor(modelItem => item.MaDoi)</td>
+                        <td>
+                            @if (!string.IsNullOrEmpty(item.Videos))
+                            {
+                                if (item.Videos.Contains("youtube.com") || item.Videos.Contains("youtu.be"))
+                                {
+                                    <iframe src="@item.Videos.Replace("watch?v=", "embed/").Replace("youtu.be/", "youtube.com/embed/")"></iframe>
+                                }
+                                else
+                                {
+                                    <a href="@HttpUtility.HtmlEncode(item.Videos)" target="_blank">Xem Video</a>
+                                }
+                            }
+                            else
+                            {
+                                <span>Không có video</span>
+                            }
+                        </td>
+                        <td>
+                            @Html.ActionLink("Edit", "Edit", new { id = item.MaTD }, new { @class = "btn btn-success" }) |
+                            @Html.ActionLink("Details", "Details", new { id = item.MaTD }, new { @class = "btn btn-danger" }) |
+                            @Html.ActionLink("Delete", "Delete", new { id = item.MaTD }, new { @class = "btn btn-dark" })
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+        <a href="/Home/TrangChu" class="btn btn-warning">
+            <i class="ri-arrow-left-circle-line"></i> Trang chu
+        </a>
+    </div>
+    <div class="form-actions no-color">
+        <a href="/Home/Admin" class="btn btn-warning"> Trang chu</a>
+        <a href="/TranDau/Tran" class="btn btn-warning"> Xem Trận đấu</a>
+    </div>
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+    }
+}

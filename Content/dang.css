@@ -1,0 +1,179 @@
+﻿* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    opacity: 1;
+    transition: opacity 0.5s ease;
+    background: url('https://png.pngtree.com/thumb_back/fh260/background/20210527/pngtree-mysterious-fantasy-gravity-blur-background-image_721318.jpg') no-repeat;
+    background-size: cover;
+    background-position: bottom;
+}
+
+.wapper {
+    position: relative;
+    width: 800px; /* Tăng chiều ngang */
+    padding: 20px 40px; /* Giảm padding trên và dưới, giữ padding hai bên */
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 20px;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-box {
+    width: 100%;
+    padding: 60px; /* Tăng padding để tạo không gian rộng rãi hơn */
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+}
+
+
+    .form-box h2 {
+        font-size: 2em;
+        color: #162938;
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+.table {
+    width: 100%;
+    padding: 0;
+    border-spacing: 15px;
+}
+
+th {
+    text-align: left;
+    color: #162938;
+    font-size: 1.1em;
+}
+
+td {
+    padding: 10px;
+    color: #162938;
+}
+
+.input-box {
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+    .input-box input,
+    .input-box select {
+        width: 100%;
+        height: 40px;
+        padding-left: 35px;
+        padding-right: 30px;
+        border: 2px solid #162938;
+        outline: none;
+        background: transparent;
+        font-size: 16px;
+        color: #162938;
+        border-radius: 5px;
+    }
+
+        .input-box input:focus,
+        .input-box select:focus {
+            border-color: #4CAF50;
+        }
+
+.icon {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #162938;
+    font-size: 20px;
+}
+
+.password-container {
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.password-input {
+    width: 100%;
+    height: 40px;
+    padding-left: 35px;
+    padding-right: 30px;
+    border: 2px solid #162938;
+    outline: none;
+    background: transparent;
+    font-size: 16px;
+    color: #162938;
+    border-radius: 5px;
+}
+
+    .password-input:focus {
+        border-color: #4CAF50;
+    }
+
+.toggle-password {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.them {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 0;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 90%; /* Giảm một chút so với chiều ngang của .wapper */
+    margin: 20px auto 0; /* Canh giữa với auto */
+    display: block; /* Đảm bảo nút là một block-level element */
+}
+
+
+    .them:hover {
+        background-color: #45a049;
+    }
+
+a {
+    color: #4CAF50;
+    text-decoration: none;
+    font-size: 16px;
+    text-align: center;
+    display: block; /* Makes the <a> take up the full width */
+    margin: 15px auto 0; /* Centers the link horizontally */
+    width: fit-content; /* Ensures the link's width adjusts to the text content */
+}
+
+    a:hover {
+        text-decoration: underline;
+    }
+
+
+/* Các hiệu ứng và phong cách bổ sung */
+input:disabled,
+textarea:disabled {
+    background-color: #f5f5f5;
+    border-color: #ccc;
+}
+
+input:focus,
+textarea:focus {
+    border-color: #4CAF50;
+    box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
+}

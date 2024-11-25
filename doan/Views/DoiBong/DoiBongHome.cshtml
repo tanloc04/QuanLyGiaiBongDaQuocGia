@@ -1,0 +1,39 @@
+﻿@model IEnumerable<doan.Models.DOIBONG>
+
+@{
+    ViewBag.Title = "DoiBongHome";
+    Layout = "~/Views/Shared/_Danhsach.cshtml";
+}
+<style>
+    body {
+    font-family: Arial, sans-serif;
+    background-image: url('@Url.Content("~/Content/image/1.png")');
+    height: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+</style>
+<link rel="stylesheet" href="~/Content/ty1.css">
+<h2 style="text-align:center; margin-bottom: 20px;">Các đội bóng</h2>
+<div class="container">
+    @foreach (var item in Model)
+    {
+        <div class="match-card">
+            <div class="match-info">
+                <a href="/CauThu/CauThu"><p class="match-date">@Html.DisplayFor(modelItem => item.TenDoi)</p></a>
+                <div class="teams">
+                    <div class="div-img-client">
+                        <!-- Sửa cú pháp thẻ img -->
+                        <img src="@Url.Content(item.Anh)" height="150" width="150" alt="Logo đội bóng" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+<div class="action-bar">
+    @Html.ActionLink("Đăng ký đội bóng", "Create", null, new { @class = "btn-create" })
+</div>
+
+

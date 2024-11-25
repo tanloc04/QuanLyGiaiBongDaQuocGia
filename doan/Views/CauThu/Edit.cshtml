@@ -1,0 +1,178 @@
+﻿@model doan.Models.CAUTHU
+
+@{
+    ViewBag.Title = "Edit";
+}
+<style>
+    * {
+        margin: 0; /* Xóa margin cho tất cả các phần tử */
+        padding: 0; /* Xóa padding cho tất cả các phần tử */
+        box-sizing: border-box; /* Tính toán kích thước bao gồm padding và border */
+    }
+
+    body {
+        background: #f0f0f0 url("https://t4.ftcdn.net/jpg/05/12/61/05/360_F_512610544_0excDel8sZTq4W0XLJTSehr9dZfOqi5R.jpg") no-repeat center center;
+        background-size: cover;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column; /* Cho phép các phần tử con xếp theo cột */
+        justify-content: center; /* Căn giữa theo chiều dọc */
+        align-items: center; /* Căn giữa theo chiều ngang */
+        min-height: 100vh;
+    }
+
+    .form-horizontal {
+        max-width: 500px; /* Set max width for the form */
+        margin: 0 auto; /* Center the form on the page */
+        background: rgba(255, 255, 255, 0.9); /* Slightly transparent background */
+        padding: 30px;
+        border-radius: 15px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); /* Softer shadow */
+        position: relative;
+    }
+
+        /* Headings */
+        .form-horizontal h2 {
+            text-align: center;
+            color: #ff0080; /* Main heading color */
+            margin-bottom: 10px;
+        }
+
+        .form-horizontal h4 {
+            text-align: center;
+            color: #4b0082; /* Subheading color */
+            margin-bottom: 20px;
+        }
+
+    .form-group {
+        display: flex; /* Use flexbox to align items in a row */
+        align-items: center; /* Center align items vertically */
+        margin-bottom: 15px; /* Space between form groups */
+    }
+
+        .form-group label {
+            flex: 1; /* Allow label to take up space */
+            margin-right: 10px; /* Space between label and input */
+            color: #333; /* Label color */
+        }
+
+    .form-control {
+        flex: 2; /* Allow input to take more space */
+        padding: 10px;
+        border: 1px solid #ccc; /* Border color */
+        border-radius: 5px; /* Rounded corners */
+        outline: none; /* Remove outline */
+        background: rgba(255, 255, 255, 0.9); /* Input background */
+    }
+
+    /* Validation message styling */
+    .text-danger {
+        color: red; /* Error message color */
+    }
+
+    /* Submit button styling */
+    .form-actions {
+        text-align: center; /* Căn giữa container nút */
+        margin-top: 20px; /* Khoảng cách trên container nút */
+    }
+
+    .action-buttons {
+        display: inline-flex; /* Sử dụng inline-flex để giữ các nút trong một hàng */
+        gap: 10px; /* Khoảng cách giữa các nút */
+    }
+
+        .action-buttons .btn {
+            padding: 10px 20px; /* Padding cho nút */
+            border: none; /* Xóa viền mặc định */
+            border-radius: 8px; /* Bo tròn góc */
+            font-weight: bold; /* Chữ in đậm */
+            cursor: pointer; /* Con trỏ chuột */
+            transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease; /* Hiệu ứng chuyển tiếp */
+        }
+
+        /* Submit button styling */
+        .action-buttons .btn-success {
+            background-color: #007bff; /* Màu xanh dương cho nút thành công */
+            color: #fff; /* Màu chữ */
+        }
+
+            .action-buttons .btn-success:hover {
+                background-color: #0056b3; /* Màu xanh dương đậm khi hover */
+                transform: scale(1.05); /* Hiệu ứng phóng to nhẹ */
+                box-shadow: 0 4px 8px rgba(0, 123, 255, 0.4); /* Hiệu ứng bóng */
+            }
+
+        /* Back button styling */
+        .action-buttons .btn-dark {
+            background-color: #6c757d; /* Màu xám cho nút quay lại */
+            color: #fff; /* Màu chữ */
+        }
+
+            .action-buttons .btn-dark:hover {
+                background-color: #5a6268; /* Màu xám đậm hơn khi hover */
+                transform: scale(1.05); /* Hiệu ứng phóng to nhẹ */
+                box-shadow: 0 4px 8px rgba(108, 117, 125, 0.4); /* Hiệu ứng bóng */
+            }
+</style>
+<div class="form-horizontal">
+    @using (Html.BeginForm("Edit", "CauThu", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        @Html.AntiForgeryToken()
+
+        <h2>Edit</h2>
+        <h4>CauThu</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.MaCT)
+
+        <div class="form-group">
+            <label for="NgaySinh">Ngày sinh</label>
+            @Html.EditorFor(model => model.NgaySinh, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.NgaySinh, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group">
+            <label for="TenCT">Tên cầu thủ</label>
+            @Html.EditorFor(model => model.TenCT, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.TenCT, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group">
+            <label for="ViTri">Vị trí</label>
+            @Html.EditorFor(model => model.ViTri, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.ViTri, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group">
+            <label for="SoAo">Số áo</label>
+            @Html.EditorFor(model => model.SoAo, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.SoAo, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group">
+            <label for="CanNang">Cân nặng</label>
+            @Html.EditorFor(model => model.CanNang, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.CanNang, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group">
+            <label for="MaDoi">Mã đội</label>
+            @Html.EditorFor(model => model.MaDoi, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.MaDoi, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group">
+            <label for="upload">Upload Image</label>
+            <input type="file" name="upload" id="upload" class="form-control" />
+        </div>
+
+        <div class="form-actions action-buttons">
+            <button type="submit" class="btn btn-success">Save</button>
+            <a href="@Url.Action("DanhSach", "CauThu")" class="btn btn-dark">Back to List</a>
+        </div>
+    }
+
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+    }
+</div>

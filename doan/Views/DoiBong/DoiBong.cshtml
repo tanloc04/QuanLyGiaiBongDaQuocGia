@@ -1,0 +1,154 @@
+﻿@model IEnumerable<doan.Models.DOIBONG>
+
+@{
+    ViewBag.Title = "Quản lý đội bóng";
+    Layout = "~/Views/Shared/_Nen.cshtml";
+}
+<style>
+    
+    body {
+         font-family: Arial, sans-serif;
+    background-image: url('@Url.Content("~/Content/image/1.png")');
+    background-size: cover; 
+    background-position: center center;
+    background-repeat: no-repeat; 
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    }
+
+    /* Container chính */
+    .admin-dashboard {
+        max-width: 1200px;
+        margin: 20px auto;
+        padding: 20px;
+        background: #ffffff;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+    }
+
+    /* Tiêu đề */
+    .dashboard-title {
+        text-align: center;
+        color: #333333;
+        margin-bottom: 20px;
+        font-size: 24px;
+        font-weight: bold;
+    }
+
+    /* Thanh hành động */
+    .action-bar {
+        text-align: right;
+        margin-bottom: 20px;
+    }
+
+    .btn-create {
+        display: inline-block;
+        padding: 10px 20px;
+        font-size: 14px;
+        color: #ffffff;
+        background: #28a745;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+    }
+
+        .btn-create:hover {
+            background: #218838;
+        }
+
+    /* Bảng quản lý */
+    .team-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 10px;
+    }
+
+        .team-table thead {
+            background: #007bff;
+            color: #ffffff;
+        }
+
+        .team-table th,
+        .team-table td {
+            padding: 12px 15px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+
+        .team-table tbody tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+
+        .team-table tbody tr:hover {
+            background: #e9ecef;
+        }
+
+    /* Nút hành động */
+    .btn {
+        padding: 6px 12px;
+        font-size: 13px;
+        text-decoration: none;
+        border-radius: 4px;
+        color: #ffffff;
+        transition: background-color 0.3s ease;
+    }
+
+    .btn-edit {
+        background: #ffc107;
+    }
+
+        .btn-edit:hover {
+            background: #e0a800;
+        }
+
+    .btn-details {
+        background: #17a2b8;
+    }
+
+        .btn-details:hover {
+            background: #138496;
+        }
+
+    .btn-delete {
+        background: #dc3545;
+    }
+
+        .btn-delete:hover {
+            background: #c82333;
+        }
+
+</style>
+<div class="admin-dashboard">
+    <h2 class="dashboard-title">Quản lý đội bóng</h2>
+
+    <div class="action-bar">
+        @Html.ActionLink("Thêm đội bóng mới", "Create", null, new { @class = "btn-create" })
+    </div>
+
+    <table class="team-table">
+        <thead>
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.MaDoi)</th>
+                <th>@Html.DisplayNameFor(model => model.TenDoi)</th>
+                <th>@Html.DisplayNameFor(model => model.Anh)</th>
+                
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => item.MaDoi)</td>
+                    <td>@Html.DisplayFor(modelItem => item.TenDoi)</td>
+                    <td> <img src="@Url.Content(item.Anh)" alt="Hình ảnh người chơi" style="width:100px; height:auto;" /></td>
+                    <td>
+                        @Html.ActionLink("Sửa", "Edit", new { id = item.MaDoi }, new { @class = "btn btn-edit" }) |
+                        @Html.ActionLink("Chi tiết", "Details", new { id = item.MaDoi }, new { @class = "btn btn-details" }) |
+                        @Html.ActionLink("Xóa", "Delete", new { id = item.MaDoi }, new { @class = "btn btn-delete" })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

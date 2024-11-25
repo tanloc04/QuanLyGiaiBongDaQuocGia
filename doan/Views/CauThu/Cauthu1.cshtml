@@ -1,0 +1,29 @@
+﻿@model IEnumerable<doan.Models.CAUTHU>
+
+@{
+    ViewBag.Title = "Cauthu1";
+    Layout = "~/Views/Shared/_Nen.cshtml";
+}
+<link rel="stylesheet" href="~/Content/cảyhu.css">
+<h2 style="text-align:center; margin-bottom: 20px;">
+    Cauthu</h2style="text-align:center;>
+    <div class="product-container">
+        @foreach (var item in Model)
+        {
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="@Url.Content(item.Images)" alt="@item.TenCT" />
+                </div>
+                <div class="product-info">
+                    <p class="product-name">@Html.DisplayFor(model => item.TenCT)</p>
+                    <p class="product-details">Mã Cầu Thủ: @Html.DisplayFor(model => item.MaCT)</p>
+                    <p class="product-details">Vị trí: @Html.DisplayFor(model => item.ViTri)</p>
+                </div>
+            </div>
+        }
+    </div>
+    <p>
+        @Html.ActionLink("Đăng ký", "Create", null, new { @class = "btn btn-success" })
+    </p>
+
+

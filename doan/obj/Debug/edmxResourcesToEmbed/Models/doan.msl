@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="doanModelStoreContainer" CdmEntityContainer="doanEntities">
+    <EntitySetMapping Name="Account">
+      <EntityTypeMapping TypeName="doanModel.Account">
+        <MappingFragment StoreEntitySet="Account">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="userName" ColumnName="userName" />
+          <ScalarProperty Name="userPassword" ColumnName="userPassword" />
+          <ScalarProperty Name="userRole" ColumnName="userRole" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BanThang">
+      <EntityTypeMapping TypeName="doanModel.BanThang">
+        <MappingFragment StoreEntitySet="BanThang">
+          <ScalarProperty Name="MaBT" ColumnName="MaBT" />
+          <ScalarProperty Name="MaCT" ColumnName="MaCT" />
+          <ScalarProperty Name="TenCT" ColumnName="TenCT" />
+          <ScalarProperty Name="MaDoi" ColumnName="MaDoi" />
+          <ScalarProperty Name="MaTD" ColumnName="MaTD" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CauThu">
+      <EntityTypeMapping TypeName="doanModel.CauThu">
+        <MappingFragment StoreEntitySet="CauThu">
+          <ScalarProperty Name="MaCT" ColumnName="MaCT" />
+          <ScalarProperty Name="NgaySinh" ColumnName="NgaySinh" />
+          <ScalarProperty Name="TenCT" ColumnName="TenCT" />
+          <ScalarProperty Name="ViTri" ColumnName="ViTri" />
+          <ScalarProperty Name="SoAo" ColumnName="SoAo" />
+          <ScalarProperty Name="CanNang" ColumnName="CanNang" />
+          <ScalarProperty Name="MaDoi" ColumnName="MaDoi" />
+          <ScalarProperty Name="Images" ColumnName="Images" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DoiBong">
+      <EntityTypeMapping TypeName="doanModel.DoiBong">
+        <MappingFragment StoreEntitySet="DoiBong">
+          <ScalarProperty Name="MaDoi" ColumnName="MaDoi" />
+          <ScalarProperty Name="TenDoi" ColumnName="TenDoi" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TranDau">
+      <EntityTypeMapping TypeName="doanModel.TranDau">
+        <MappingFragment StoreEntitySet="TranDau">
+          <ScalarProperty Name="SanTD" ColumnName="SanTD" />
+          <ScalarProperty Name="NgayTD" ColumnName="NgayTD" />
+          <ScalarProperty Name="MaTD" ColumnName="MaTD" />
+          <ScalarProperty Name="TySo" ColumnName="TySo" />
+          <ScalarProperty Name="DoiKhach" ColumnName="DoiKhach" />
+          <ScalarProperty Name="DoiChuNha" ColumnName="DoiChuNha" />
+          <ScalarProperty Name="MaVD" ColumnName="MaVD" />
+          <ScalarProperty Name="MaDoi" ColumnName="MaDoi" />
+          <ScalarProperty Name="Videos" ColumnName="Videos" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VongDau">
+      <EntityTypeMapping TypeName="doanModel.VongDau">
+        <MappingFragment StoreEntitySet="VongDau">
+          <ScalarProperty Name="MaVD" ColumnName="MaVD" />
+          <ScalarProperty Name="TenVD" ColumnName="TenVD" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

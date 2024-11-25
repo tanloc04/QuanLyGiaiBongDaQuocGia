@@ -1,0 +1,41 @@
+﻿@model IEnumerable<doan.Models.TRANDAU>
+
+@{
+    ViewBag.Title = "Tran";
+    Layout = "~/Views/Shared/_Nen.cshtml";
+}
+<link rel="stylesheet" href="~/Content/csss.css">
+<h2 style="text-align:center; margin-bottom: 20px;">Trận Đấu</h2>
+<div class="container">
+        @foreach (var item in Model)
+        {
+            <div class="match-card">
+                <div class="match-info">
+                    <p class="match-date">@Html.DisplayFor(modelItem => item.NgayTD)</p>
+                    <div class="teams">
+                        <span class="team-name">@Html.DisplayFor(model => item.DoiChuNha)</span>
+                        <span class="match-score">@Html.DisplayFor(model => item.TySo)</span>
+                        <span class="team-name">@Html.DisplayFor(model => item.DoiKhach)</span>
+                    </div>
+                </div>
+                <div class="video-section">
+                    @if (!string.IsNullOrEmpty(item.Videos))
+                    {
+                        if (item.Videos.Contains("youtube.com") || item.Videos.Contains("youtu.be"))
+                        {
+                            <iframe src="@item.Videos.Replace("watch?v=", "embed/").Replace("youtu.be/", "youtube.com/embed/")"></iframe>
+                        }
+                        else
+                        {
+                            <a href="@HttpUtility.HtmlEncode(item.Videos)" target="_blank">Xem Video</a>
+                        }
+                    }
+                    else
+                    {
+                        <span>Không có video</span>
+                    }
+                </div>
+            </div>
+        }
+ 
+</div>

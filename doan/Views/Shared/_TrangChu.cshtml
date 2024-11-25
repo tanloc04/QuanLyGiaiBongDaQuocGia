@@ -1,0 +1,493 @@
+﻿<!DOCTYPE html>
+
+<html>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link ref="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.2.0/remixicon.min.css">
+<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+<link rel="stylesheet" href="~/Content/huy.css">
+<title>@ViewBag.Title</title>
+
+
+
+<style>
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "border-box", sans-serif;
+    }
+
+    body {
+        background: url("https://suachualaptop24h.com/upload_images/images/2024/08/06/hinh-nen-san-bong-dep-banner.jpg");
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+    button {
+        cursor: pointer;
+    }
+
+    img {
+        object-fit: cover;
+    }
+
+    h2 {
+        font-weight: bold;
+    }
+
+    nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 32px;
+        border: 1px solid #e8e8;
+        position: absolute;
+        top: 16px;
+        left: 50%;
+        transform: translate(-50%);
+        border-radius: 16px;
+        padding: 12px;
+        background: #000;
+    }
+
+        nav .logo {
+            display: flex;
+            gap: 5px;
+            align-items: center;
+        }
+
+            nav .logo img {
+                width: 30px;
+                height: 30px;
+            }
+
+            nav .logo a {
+                color: #dedede;
+                font-weight: 600;
+            }
+
+        nav .nav_link {
+            display: flex;
+            gap: 35px;
+        }
+
+            nav .nav_link a {
+                font-size: 14px;
+                color: #dedede;
+                text-align: 15px;
+                transition: all 0.3s ease;
+            }
+
+                nav .nav_link a:hover {
+                    color: #FFD700;
+                }
+
+        nav button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 3px;
+            font-size: 14px;
+            height: 32px;
+            width: 200px;
+            background: #fff;
+            color: #000;
+            border-radius: 8px;
+            border: 1px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+            nav button:hover, .hero .left-section .top .buttons button.doc:hover {
+                color: #e8e8;
+                background: #fff;
+                border-color: #dedede;
+            }
+
+            nav button i {
+                font-size: 20px;
+            }
+
+    .hero {
+        margin-top: 80px;
+        height: calc(100vh - 80px);
+        padding: 0 60px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 30px;
+    }
+
+        .hero > img {
+            max-height: 520px;
+            width: 44%;
+            border-radius: 26px;
+        }
+
+        .hero .left-section {
+            display: flex;
+            flex-direction: column;
+            gap: 100px;
+        }
+
+            .hero .left-section .top h2 {
+                font-size: 44px;
+                margin-bottom: 24px;
+                font-weight: 100px;
+            }
+
+            .hero .left-section .top p {
+                color: #dec018;
+                font-size: 18px;
+                margin-bottom: 24px;
+                text-align: justify;
+            }
+
+            .hero .left-section .top .buttons {
+                display: flex;
+                gap: 8px;
+            }
+
+                .hero .left-section .top .buttons button {
+                    font-size: 16px;
+                    border: none;
+                    padding: 5px 20px;
+                    background: #fff;
+                    border: 1px solid #000;
+                    border-radius: 12px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    gap: 5px;
+                    font-weight: 500;
+                    transition: all 0.3 ease;
+                }
+
+                    .hero .left-section .top .buttons button i {
+                        font-size: 26px;
+                    }
+
+                    .hero .left-section .top .buttons button.doc:hover {
+                        background-color: #000;
+                        color: #fff;
+                        border-color: transparent;
+                    }
+
+                    .hero .left-section .top .buttons button.git:hover {
+                        background: #000;
+                        color: #fff;
+                        border-color: transparent;
+                    }
+
+    .about {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        background: #f5f5f5;
+        padding: 50px;
+    }
+
+        .about > p {
+            font-size: 14px;
+            color: #606060;
+            border: 1px solid #e8e8e8;
+            padding: 6px 14px;
+            border-radius: 16px;
+            margin-bottom: 12px;
+            background: #fff;
+        }
+
+        .about > h1 {
+            font-size: 22px;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .about .items {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+        }
+
+            .about .items .item {
+                width: 26%;
+                border: 1px solid #e8e8e8;
+                border-radius: 16px;
+                background: #f1f1f1;
+                padding: 0 0 30px;
+            }
+
+                .about .items .item .inner {
+                    background: #fff;
+                    padding: 24px;
+                    border-radius: 16px;
+                    border: 1px solid #e8e8e8;
+                    min-height: 365px;
+                    margin-bottom: 1rem;
+                    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+                    transition: transform 0.3s, box-shadow 0.3s;
+                }
+
+                    .about .items .item .inner:hover {
+                        transform: scale(1.02);
+                        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+                    }
+
+                .about .items .item img {
+                    width: 100%;
+                    height: auto;
+                    max-height: 200px;
+                    object-fit: contain;
+                }
+
+                .about .items .item .inner .a {
+                    font-size: 18px;
+                    color: #000;
+                    text-align: center;
+                    margin-bottom: 10px;
+                    display: block;
+                }
+
+                .about .items .item .inner .p {
+                    color: #606060;
+                    font-size: 15px;
+                }
+
+    .footer {
+        background-color: #f1f1f1;
+        padding: 20px 0;
+        text-align: center;
+    }
+
+    .footer-columns {
+        display: flex;
+        justify-content: space-around;
+        padding: 20px 0;
+    }
+
+        .footer-columns div {
+            margin: 0 10px;
+        }
+
+        .footer-columns h3 {
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+
+        .footer-columns ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-columns li {
+            margin: 5px 0;
+        }
+
+    .footer-bottom {
+        border-top: 1px solid #ddd;
+        padding: 10px 0;
+        font-size: 0.9em;
+    }
+
+        .footer-bottom a {
+            color: #333;
+            text-decoration: none;
+            margin: 0 5px;
+        }
+
+    .bottom {
+        margin-top: 20px;
+    }
+
+        .bottom p {
+            margin: 0 0 10px;
+        }
+
+    .icons i {
+        font-size: 24px;
+        margin: 0 10px;
+    }
+</style>
+</head>
+<body>
+    <nav>
+        <div class="logo">
+            <img src="~/Content/image/logo-cho-giai-dau-bong-da-e1579131412435.jpg" width="80" height="80p" />
+            <a href="#">Vleague</a>
+        </div>
+        <div class="nav_link">
+            <a href="https://vi.wikipedia.org/wiki/Gi%E1%BA%A3i_b%C3%B3ng_%C4%91%C3%A1_V%C3%B4_%C4%91%E1%BB%8Bch_Qu%E1%BB%91c_gia_Vi%E1%BB%87t_Nam">Home</a>
+            <a href="https://www.google.com/search?q=vleague&rlz=1C1ONGR_enVN1021VN1021&oq=&gs_lcrp=EgZjaHJvbWUqBggAEEUYOzIGCAAQRRg7MgYIARBFGDkyBggCEEUYOzIMCAMQLhgKGLEDGIAEMgkIBBAAGAoYgAQyCQgFEAAYChiABDIJCAYQABgKGIAEMgkIBxAAGAoYgAQyCQgIEAAYChiABDIJCAkQABgKGIAE0gEIMTM1NGowajeoAgCwAgA&sourceid=chrome&ie=UTF-8#wptab=si:ACC90nyak7e0Q7BIYTp6zp5a6IX9XbX-fTwYPqJxit0q4evKoO_0GqJ-drnEyOMvNCM0-02QB0FYN6rhVpZ66qXDjZXKx99vcYkh6sR5KkKb1phnT3aQFZrzTJvM_kOjIIW4_v68T0VgcKrnc4n7xo3nyw5wIlf4B32fOyiscvIhVZXVa-R252QfCnPE2ztzYT3EVMVwx5R0">Câu lạc bộ</a>
+            <a href="https://www.google.com/search?q=vleague&rlz=1C1ONGR_enVN1021VN1021&oq=&gs_lcrp=EgZjaHJvbWUqBggAEEUYOzIGCAAQRRg7MgYIARBFGDkyBggCEEUYOzIMCAMQLhgKGLEDGIAEMgkIBBAAGAoYgAQyCQgFEAAYChiABDIJCAYQABgKGIAEMgkIBxAAGAoYgAQyCQgIEAAYChiABDIJCAkQABgKGIAE0gEIMTM1NGowajeoAgCwAgA&sourceid=chrome&ie=UTF-8#wptab=si:ACC90nxQZsc3-SzqjjfZIzXXwkQ-KMuuGVSLjVrNN3naMt2BAhIg5JoKwz92lBPKheDiw8FJSV49wrdM-l-zc5DvMO6SliA3XkZv_MzJuo8lF2VEBhmNKvae-TqEVY44F5h83oEy_r4yZlLWfYMhvbgRRze8llobbHzt9AbT008ky2cBrNoQR8c%3D">Trận đấu</a>
+            <a href="https://www.google.com/search?q=ng%C6%B0%E1%BB%9Di+ch%C6%A1i+v-league&rlz=1C1ONGR_enVN1021VN1021&gs_lcrp=EgZjaHJvbWUqBggAEEUYOzIGCAAQRRg7MgYIARBFGDkyBggCEEUYOzIMCAMQLhgKGLEDGIAEMgkIBBAAGAoYgAQyCQgFEAAYChiABDIJCAYQABgKGIAEMgkIBxAAGAoYgAQyCQgIEAAYChiABDIJCAkQABgKGIAE0gEIMTM1NGowajeoAgCwAgA&sourceid=chrome&ie=UTF-8&si=ACC90nx2ZGWIgus24EB1Vq5Xb0oS0ji5k0XEzWP8w87b9AoKKK2fe98HLoQqiCBxeiUhVmotYwLiN0YNMhoL5Bfw2q3VNjbFLzHbxG4vJqjn9J94etONLh4EGH-DL9JPZlxm60Qj0di4_-8KxMvvJNBGQVbXMXnL4McnSPArG-8JWpJP0i-AbRU%3D&ictx=1&ved=2ahUKEwjJhezYo7CJAxUgr1YBHR0nNNoQyNoBKAB6BAgSEAA#wptab=si:ACC90nxe5IMKLNaWKG5ZMsNiRSOfHZoVTOg4uYvtQegxOaMdmQPaUmMJraiNL_B3-SteEMKBELyRJf9ThEv0gYVjK2hsdH-GbqMkI5Ha46HxXQtn-rQP7bHZA_RgPos1yKaf5wN_OB3XO9MMq9iYj1a5GQU5BjuCVo-eZ15-Hm831ZKoOLg4PBs45ZmUbB5dksAKh79VO5DM">Cầu thủ</a>
+        </div>
+        <button><i class="ri-login-circle-fill"></i><a href="/Login/Login">Login</a></button>
+    </nav>
+
+    <div class="hero">
+        <div class="left-section">
+            <div class="top">
+                <h2>Giải đấu hàng đầu số 1 Việt Nam</h2>
+                <p>
+                    Là giải đấu bóng đá chuyên nghiệp cấp câu lạc bộ cao nhất Việt Nam
+                    <div class="buttons">
+                        <button class="doc">here me <i class="ri-arrow-right-line"></i></button>
+                        <button class="git"><i class="ri-github-line"></i> My Football</button>
+                    </div>
+            </div>
+
+        </div>
+        <img src="~/Content/image/unnamed (1).jpg">
+    </div>
+    <div class="about">
+        <p>About the tournament</p>
+        <h1> Giẩi đấu bống đá hàng đầu việt nam được tổ chức bởi liên đoàn bóng đá Việt Nam</h1>
+        <div class="items">
+            <div class="item">
+                <div class="inner">
+                    <img src="https://upload.wikimedia.org/wikipedia/vi/4/4c/V.League_1_new_logo.svg"
+                    <a href="#">Lịch sử giải đấu</a>
+                    <p>
+                        Giải đấu ra mắt vào năm 1980 dưới tên gọi Giải bóng đá A1 toàn quốc,
+                        với nhà vô địch đầu tiên là đội Tổng cục Đường sắt.
+                    </p>
+                </div>
+            </div>
+            <div class="item">
+                <div class="inner">
+                    <img src="https://media.vov.vn/sites/default/files/styles/og_image/public/2023-10/386756634_697985252359904_2473966671876369931_n.png"
+                    <a href="#">Các câu lạc bộ tham dự</a>
+                    <p>
+                        Giải đấu bao gồm 14 đội thi đấu theo thể thức đấu vòng tròn sân nhà và sân khách.
+                        Đội bóng đứng đầu bảng ở cuối mùa giải được dự AFC Champions League Two mùa sau.
+                    </p>
+                </div>
+            </div>
+            <div class="item">
+                <div class="inner">
+                    <img src="https://upload.wikimedia.org/wikipedia/vi/4/4c/V.League_1_new_logo.svg"
+                    <a href="#">Nhà tài trợ chính của giải đấu</a>
+                    <p>
+                        Công ty Cổ phần Sâm Ngọc Linh Kon Tum chính thức tài trợ cho V.League trong 3 mùa giải liên tiếp,
+                        giải đấu theo đó cũng có tên gọi mới là Night Wolf V.League 1.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <h2 style="text-align: center; margin-bottom: 20px;">Cầu Thủ Tiêu Biểu</h2>
+    <div class="product-container">
+        <!-- Sản phẩm 1 -->
+        <div class="product-card">
+            <img src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcS1nTOWWb-ac8cX8DDn4OBVuMX_hhrMNNJkWnsnOM-8CCLbjQoWkBlhQTljIs-Txr83-IeBzgbe7azvKuzIzStL0Q" alt="Sản phẩm 1" class="product-image">
+            <div class="product-info">
+
+                <p class="product-name">Nguyễn Hoàng đức</p>
+                <p class="product-name">1997</p>
+            </div>
+        </div>
+        <!-- Sản phẩm 2 -->
+        <div class="product-card">
+            <img src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcS1nTOWWb-ac8cX8DDn4OBVuMX_hhrMNNJkWnsnOM-8CCLbjQoWkBlhQTljIs-Txr83-IeBzgbe7azvKuzIzStL0Q" alt="Sản phẩm 2" class="product-image">
+            <div class="product-info">
+                <p class="product-name">Nguyễn Công Phượng</p>
+                <p class="product-name">1997</p>
+            </div>
+        </div>
+        <div class="product-card">
+            <img src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcS1nTOWWb-ac8cX8DDn4OBVuMX_hhrMNNJkWnsnOM-8CCLbjQoWkBlhQTljIs-Txr83-IeBzgbe7azvKuzIzStL0Q" alt="Sản phẩm 2" class="product-image">
+            <div class="product-info">
+                <p class="product-name">Nguyễn Công Phượng</p>
+                <p class="product-name">1997</p>
+            </div>
+        </div>
+        <div class="product-card">
+            <img src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcS1nTOWWb-ac8cX8DDn4OBVuMX_hhrMNNJkWnsnOM-8CCLbjQoWkBlhQTljIs-Txr83-IeBzgbe7azvKuzIzStL0Q" alt="Sản phẩm 2" class="product-image">
+            <div class="product-info">
+                <p class="product-name">Nguyễn Công Phượng</p>
+                <p class="product-name">1997</p>
+            </div>
+        </div>
+        <div class="product-card">
+            <img src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcS1nTOWWb-ac8cX8DDn4OBVuMX_hhrMNNJkWnsnOM-8CCLbjQoWkBlhQTljIs-Txr83-IeBzgbe7azvKuzIzStL0Q" alt="Sản phẩm 2" class="product-image">
+            <div class="product-info">
+                <p class="product-name">Nguyễn Công Phượng</p>
+                <p class="product-name">1997</p>
+            </div>
+        </div>
+        <div class="product-card">
+            <img src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcS1nTOWWb-ac8cX8DDn4OBVuMX_hhrMNNJkWnsnOM-8CCLbjQoWkBlhQTljIs-Txr83-IeBzgbe7azvKuzIzStL0Q" alt="Sản phẩm 2" class="product-image">
+            <div class="product-info">
+                <p class="product-name">Nguyễn Công Phượng</p>
+                <p class="product-name">1997</p>
+            </div>
+        </div>
+        <div class="product-card">
+            <img src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcS1nTOWWb-ac8cX8DDn4OBVuMX_hhrMNNJkWnsnOM-8CCLbjQoWkBlhQTljIs-Txr83-IeBzgbe7azvKuzIzStL0Q" alt="Sản phẩm 2" class="product-image">
+            <div class="product-info">
+                <p class="product-name">Nguyễn Công Phượng</p>
+                <p class="product-name">1997</p>
+            </div>
+        </div>
+        <div class="product-card">
+            <img src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcS1nTOWWb-ac8cX8DDn4OBVuMX_hhrMNNJkWnsnOM-8CCLbjQoWkBlhQTljIs-Txr83-IeBzgbe7azvKuzIzStL0Q" alt="Sản phẩm 2" class="product-image">
+            <div class="product-info">
+                <p class="product-name">Nguyễn Công Phượng</p>
+                <p class="product-name">1997</p>
+            </div>
+        </div>
+
+    </div>
+    <div class="footer">
+        <div class="footer-columns">
+            <div>
+                <h3>VỀ CHÚNG TÔI</h3>
+                <ul>
+                    <li>Lịch sử</li>
+                    <li>Công ty</li>
+                    <li>Cơ hội nghề nghiệp</li>
+                </ul>
+            </div>
+            <div>
+                <h3>DỊCH VỤ KHÁCH HÀNG</h3>
+                <ul>
+                    <li>Câu hỏi Thường Gặp</li>
+                </ul>
+            </div>
+            <div>
+                <h3>LIÊN KẾT NHANH</h3>
+                <ul>
+                    <li>Bộ định vị Cửa hàng</li>
+                    <li>Dành cho Đối tác</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2024 Vleague. Mọi quyền được bảo lưu.</p>
+            <a href="#">Khả năng truy cập Web</a> |
+            <a href="#">Chính Sách Bảo Mật Thông Tin</a> |
+            <a href="#">Điều khoản Sử dụng</a> |
+            <a href="#">Sơ đồ Trang web</a> |
+            <a href="#">Tùy Chọn Cookie</a>
+        </div>
+
+        <div class="bottom">
+            <p>Orther Socials:</p>
+            <div class="icons">
+                <i class="ri-youtube-line"></i>
+                <i class="ri-facebook-circle-fill"></i>
+            </div>
+        </div>
+    </div>
+    <div>
+        @RenderBody()
+    </div>
+</body>
+</html>
+

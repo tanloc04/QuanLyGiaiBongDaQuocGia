@@ -1,0 +1,150 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="QLGIAIBONGDAModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Account">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="250" Nullable="false" />
+    <Property Name="UserPassword" Type="nvarchar" MaxLength="250" Nullable="false" />
+    <Property Name="userRole" Type="nvarchar" MaxLength="250" Nullable="false" />
+  </EntityType>
+  <EntityType Name="BANTHANG">
+    <Key>
+      <PropertyRef Name="MaBT" />
+    </Key>
+    <Property Name="MaBT" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="MaCT" Type="varchar" MaxLength="5" Nullable="false" />
+    <Property Name="MaTD" Type="varchar" MaxLength="10" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CAUTHU">
+    <Key>
+      <PropertyRef Name="MaCT" />
+    </Key>
+    <Property Name="MaCT" Type="varchar" MaxLength="5" Nullable="false" />
+    <Property Name="TenCT" Type="nvarchar" MaxLength="40" Nullable="false" />
+    <Property Name="NgaySinh" Type="datetime" />
+    <Property Name="ViTri" Type="nvarchar" MaxLength="20" />
+    <Property Name="SoAo" Type="int" />
+    <Property Name="CanNang" Type="float" />
+    <Property Name="Images" Type="nvarchar" MaxLength="250" />
+    <Property Name="MaDoi" Type="varchar" MaxLength="5" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DOIBONG">
+    <Key>
+      <PropertyRef Name="MaDoi" />
+    </Key>
+    <Property Name="MaDoi" Type="varchar" MaxLength="5" Nullable="false" />
+    <Property Name="TenDoi" Type="nvarchar" MaxLength="250" Nullable="false" />
+    <Property Name="Anh" Type="nvarchar" MaxLength="250" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TRANDAU">
+    <Key>
+      <PropertyRef Name="MaTD" />
+    </Key>
+    <Property Name="SanTD" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="NgayTD" Type="datetime" Nullable="false" />
+    <Property Name="MaTD" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="TySo" Type="varchar" MaxLength="10" />
+    <Property Name="DoiKhach" Type="nvarchar" MaxLength="40" />
+    <Property Name="DoiChuNha" Type="nvarchar" MaxLength="40" />
+    <Property Name="Videos" Type="nvarchar" MaxLength="250" Nullable="false" />
+    <Property Name="MaVD" Type="varchar" MaxLength="10" />
+    <Property Name="MaDoi" Type="varchar" MaxLength="5" />
+  </EntityType>
+  <EntityType Name="VONGDAU">
+    <Key>
+      <PropertyRef Name="MaVD" />
+    </Key>
+    <Property Name="MaVD" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="TenVD" Type="nvarchar" MaxLength="250" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__BANTHANG__MaCT__30F848ED">
+    <End Role="CAUTHU" Type="Self.CAUTHU" Multiplicity="1" />
+    <End Role="BANTHANG" Type="Self.BANTHANG" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CAUTHU">
+        <PropertyRef Name="MaCT" />
+      </Principal>
+      <Dependent Role="BANTHANG">
+        <PropertyRef Name="MaCT" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__BANTHANG__MaTD__31EC6D26">
+    <End Role="TRANDAU" Type="Self.TRANDAU" Multiplicity="1" />
+    <End Role="BANTHANG" Type="Self.BANTHANG" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TRANDAU">
+        <PropertyRef Name="MaTD" />
+      </Principal>
+      <Dependent Role="BANTHANG">
+        <PropertyRef Name="MaTD" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__CAUTHU__MaDoi__267ABA7A">
+    <End Role="DOIBONG" Type="Self.DOIBONG" Multiplicity="1" />
+    <End Role="CAUTHU" Type="Self.CAUTHU" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DOIBONG">
+        <PropertyRef Name="MaDoi" />
+      </Principal>
+      <Dependent Role="CAUTHU">
+        <PropertyRef Name="MaDoi" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TRANDAU__MaDoi__2E1BDC42">
+    <End Role="DOIBONG" Type="Self.DOIBONG" Multiplicity="0..1" />
+    <End Role="TRANDAU" Type="Self.TRANDAU" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DOIBONG">
+        <PropertyRef Name="MaDoi" />
+      </Principal>
+      <Dependent Role="TRANDAU">
+        <PropertyRef Name="MaDoi" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TRANDAU__MaVD__2D27B809">
+    <End Role="VONGDAU" Type="Self.VONGDAU" Multiplicity="0..1" />
+    <End Role="TRANDAU" Type="Self.TRANDAU" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="VONGDAU">
+        <PropertyRef Name="MaVD" />
+      </Principal>
+      <Dependent Role="TRANDAU">
+        <PropertyRef Name="MaVD" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="QLGIAIBONGDAModelStoreContainer">
+    <EntitySet Name="Account" EntityType="Self.Account" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BANTHANG" EntityType="Self.BANTHANG" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CAUTHU" EntityType="Self.CAUTHU" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DOIBONG" EntityType="Self.DOIBONG" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TRANDAU" EntityType="Self.TRANDAU" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="VONGDAU" EntityType="Self.VONGDAU" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__BANTHANG__MaCT__30F848ED" Association="Self.FK__BANTHANG__MaCT__30F848ED">
+      <End Role="CAUTHU" EntitySet="CAUTHU" />
+      <End Role="BANTHANG" EntitySet="BANTHANG" />
+    </AssociationSet>
+    <AssociationSet Name="FK__BANTHANG__MaTD__31EC6D26" Association="Self.FK__BANTHANG__MaTD__31EC6D26">
+      <End Role="TRANDAU" EntitySet="TRANDAU" />
+      <End Role="BANTHANG" EntitySet="BANTHANG" />
+    </AssociationSet>
+    <AssociationSet Name="FK__CAUTHU__MaDoi__267ABA7A" Association="Self.FK__CAUTHU__MaDoi__267ABA7A">
+      <End Role="DOIBONG" EntitySet="DOIBONG" />
+      <End Role="CAUTHU" EntitySet="CAUTHU" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TRANDAU__MaDoi__2E1BDC42" Association="Self.FK__TRANDAU__MaDoi__2E1BDC42">
+      <End Role="DOIBONG" EntitySet="DOIBONG" />
+      <End Role="TRANDAU" EntitySet="TRANDAU" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TRANDAU__MaVD__2D27B809" Association="Self.FK__TRANDAU__MaVD__2D27B809">
+      <End Role="VONGDAU" EntitySet="VONGDAU" />
+      <End Role="TRANDAU" EntitySet="TRANDAU" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

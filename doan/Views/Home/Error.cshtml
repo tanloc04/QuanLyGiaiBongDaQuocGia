@@ -1,0 +1,14 @@
+﻿
+@{
+    ViewBag.Title = "Error";
+    Layout = "~/Views/Shared/_Nen.cshtml";
+}
+
+<h2>Error</h2>
+<div class="alert alert-danger">
+    <strong>Error: </strong> @ViewBag.ErrorMessage
+</div>
+
+<div>
+    @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-secondary" })
+</div>

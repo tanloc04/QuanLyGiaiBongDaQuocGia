@@ -1,0 +1,31 @@
+﻿@model doan.Models.Account
+
+@{
+    ViewBag.Title = "Logout";
+    Layout = "~/Views/Shared/_Login.cshtml";
+}
+<style>
+    .logout-button {
+        display: block; /* Make it block to take full width */
+        margin-top: 20px; /* Space above the button */
+        padding: 10px; /* Padding for the button */
+        width: 100%; /* Full width */
+        background-color: #d9534f; /* Red background color */
+        color: white; /* White text color */
+        border: none; /* Remove default border */
+        border-radius: 4px; /* Rounded corners */
+        cursor: pointer; /* Pointer cursor on hover */
+        font-size: 16px; /* Font size */
+        text-align: center; /* Center the text */
+        transition: background-color 0.3s; /* Smooth transition for background color */
+    }
+
+        .logout-button:hover {
+            background-color: #c9302c; /* Darker red on hover */
+        }
+
+</style>
+@using (Html.BeginForm("Logout", "Account", FormMethod.Post))
+{
+    <button type="submit" class="logout-button">Logout</button>
+}
